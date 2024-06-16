@@ -1,0 +1,650 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>大数据开发技术 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Hadoop先决条件
+centos-7-x86_64-...">
+  <meta name="author" content="John Doe">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/weiran12123/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">大数据开发技术</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/weiran12123/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">大数据开发技术</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 09, 2023</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>11953</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <h1 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h1><h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><blockquote>
+<p>centos-7-x86_64-dvd-2009.iso</p>
+<p>VMware Workstation 15.5</p>
+<p>jdk1.8</p>
+<p>hadoop-3.3.1</p>
+</blockquote>
+<h2 id="创建hadoop用户"><a href="#创建hadoop用户" class="headerlink" title="创建hadoop用户"></a>创建hadoop用户</h2><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">创建<span class="string">hadoop</span>用户</span><br><span class="line">[<span class="string">root</span>@<span class="string">localhost</span>~]<span class="comment"># sudo useradd -m hadoop -s /bin/bash</span></span><br><span class="line"></span><br><span class="line">将<span class="string">hadoop</span>添加到<span class="string">sudoer</span>中, <span class="string">root</span>用户编辑<span class="string">sudoers</span>文件：</span><br><span class="line">[<span class="string">root</span>@<span class="string">localhost</span>~] <span class="comment"># sudo vi /etc/sudoers</span></span><br><span class="line">增加下面信息到文件中:</span><br><span class="line"><span class="string">hadoop</span> <span class="string">ALL</span>=(<span class="string">ALL</span>) <span class="string">ALL</span></span><br><span class="line"></span><br><span class="line">设置<span class="string">hadoop</span>密码方式<span class="string">1</span>:(下面方式，可以避开密码合规检查)</span><br><span class="line">[<span class="string">root</span>@<span class="string">localhost</span>~]<span class="comment"># sudo echo &quot;123456&quot;|passwd --stdin hadoop</span></span><br><span class="line"></span><br><span class="line">设置<span class="string">hadoop</span>密码方式<span class="string">2</span>:(按提示输入两次密码:)</span><br><span class="line">[<span class="string">root</span>@<span class="string">localhost</span>~]<span class="comment"># sudo passwd hadoop</span></span><br><span class="line"></span><br><span class="line">设置主机名方式<span class="string">1</span>:</span><br><span class="line">[<span class="string">root</span>@<span class="string">localhost</span>~]$ <span class="string">sudo</span> <span class="string">vi</span> /<span class="string">etc</span>/<span class="string">hostname</span></span><br><span class="line">修改值为: <span class="string">hadoop</span></span><br><span class="line"></span><br><span class="line">设置主机名方式<span class="string">2</span>:</span><br><span class="line">[<span class="string">root</span>@<span class="string">localhost</span>~]$ <span class="string">sudo</span> <span class="string">hostnamectl</span> <span class="built_in">set-hostname</span> <span class="string">hadoop</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">更新apt（apt   =   安装包管理工具）</span><br><span class="line"><span class="number">4</span>.sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">若出现如下 <span class="string">&quot;Hash校验和不符&quot;</span> 的提示，可通过更改软件源来解决</span><br><span class="line">选择【软件和更新】</span><br><span class="line">点击 “下载自” 右侧的方框，选择【其他节点】</span><br><span class="line">在列表中选中【mirrors.aliyun.<span class="keyword">com</span>】，并点击右下角的【选择服务器】，会要求输入用户密码，输入即可。</span><br><span class="line">接着点击关闭。</span><br><span class="line">此时会提示列表信息过时，点击【重新载入】，</span><br><span class="line"></span><br><span class="line">下载<span class="keyword">vim</span>   --   没有<span class="keyword">vim</span>可以用gedit</span><br><span class="line">\<span class="number">5</span>. sudo apt-<span class="built_in">get</span> install <span class="keyword">vim</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">安装下载openssh-server</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>sudo yum install -y openssh-server</span><br><span class="line"></span><br><span class="line">通过ssh登陆本机</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>ssh localhost</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>exit</span><br><span class="line"></span><br><span class="line">创建密钥</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> .ssh]<span class="variable">$ </span>ssh-keygen -t rsa</span><br><span class="line"></span><br><span class="line">拷贝公钥</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>cd ~<span class="regexp">/.ssh/</span></span><br><span class="line">[hadoop<span class="variable">@hadoop</span> .ssh]<span class="variable">$ </span>ssh-copy-id -i ./id_rsa.pub hadoop<span class="variable">@localhost</span></span><br><span class="line"></span><br><span class="line">原理<span class="symbol">:b</span>机器有我们的公钥，我们可以通过私钥不需要密码就登录</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="JDK部署"><a href="#JDK部署" class="headerlink" title="JDK部署"></a>JDK部署</h2><p>step1:删除openjdk</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">检查是否含有openjdk</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>rpm -qa|grep java</span><br><span class="line"></span><br><span class="line">如果存在，则先卸载</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>sudo yum remove -y java*</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>sudo yum remove -y python-javapackages-<span class="number">3.4</span>.<span class="number">1</span>-<span class="number">11</span>.el7.noarch</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>sudo yum remove -y tzdata-java-<span class="number">2023</span>c-<span class="number">1</span>.el7.noarch</span><br><span class="line">....和java相关的，都卸载。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>step2:部署jdk</p>
+<p>jdk下载地址：<a target="_blank" rel="noopener" href="https://www.oracle.com/cn/java/technologies/downloads/">https://www.oracle.com/cn/java/technologies/downloads/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">创建存放jdk1.8的存放目录</span><br><span class="line">[hadoop@hadoop ~]$ sudo <span class="built_in">mkdir</span> /usr/lib/jvm</span><br><span class="line"></span><br><span class="line">解压jdk压缩包</span><br><span class="line">[hadoop@hadoop ~]$ sudo tar -zxvf ./jdk-8u371-linux-x64.tar.gz -C /usr/lib/jvm/</span><br><span class="line"></span><br><span class="line">配置环境变量</span><br><span class="line">[hadoop@hadoop ~]$ vim ~/.bashrc</span><br><span class="line">添加以下内容:	</span><br><span class="line">	<span class="comment"># java</span></span><br><span class="line">	<span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jdk1.8.0_371	</span><br><span class="line">	<span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line">	<span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line">	<span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br><span class="line">	</span><br><span class="line">使环境变量生效</span><br><span class="line">[hadoop@hadoop ~]$ <span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line">验证是否配置成功</span><br><span class="line">[hadoop@hadoop ~]$ java -version</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="Hadoop部署"><a href="#Hadoop部署" class="headerlink" title="Hadoop部署"></a>Hadoop部署</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">解压hadoop压缩包到/usr/local目录下</span><br><span class="line">[hadoop@hadoop ~]$ sudo tar -zxvf ./hadoop-3.3.1.tar.gz -C /usr/local/</span><br><span class="line"></span><br><span class="line">将文件夹名改为hadoop,方便操作</span><br><span class="line">[hadoop@hadoop ~]$ sudo <span class="built_in">mv</span> /usr/local/hadoop-3.3.1/ /usr/local/hadoop</span><br><span class="line"></span><br><span class="line">修改文件权限</span><br><span class="line">[hadoop@hadoop <span class="built_in">local</span>]$ sudo <span class="built_in">chown</span> -R hadoop:hadoop /usr/local/hadoop/</span><br><span class="line"></span><br><span class="line">检查是否可用</span><br><span class="line">[hadoop@hadoop ~]$ <span class="built_in">cd</span> /usr/local/hadoop</span><br><span class="line">[hadoop@hadoop hadoop]$ ./bin/hadoop version</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">配置hadoop环境变量:</span><br><span class="line">vim ~/.bashrc</span><br><span class="line">添加以下内容：</span><br><span class="line"><span class="comment"># hadoop</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/local/hadoop</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$&#123;HADOP_HOME&#125;</span>/bin:<span class="variable">$&#123;HADOOP_HOME&#125;</span>/sbin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h2 id="Hadoop单机"><a href="#Hadoop单机" class="headerlink" title="Hadoop单机"></a>Hadoop单机</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">查看全部自带的例子，包括 wordcount、terasort、<span class="built_in">join</span>、grep 等。	</span><br><span class="line">[hadoop@hadoop hadoop]$ ./bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.1.jar</span><br><span class="line"></span><br><span class="line">运行 grep 例子</span><br><span class="line">将 input 文件夹中的所有文件作为输入，筛选当中符合正则表达式 dfs[a-z.]+ 的单词并统计出现的次数，最后输出结果到 output 文件夹中。</span><br><span class="line">[hadoop@hadoop ~]$ <span class="built_in">cd</span> /usr/local/hadoop</span><br><span class="line">[hadoop@hadoop hadoop]$ <span class="built_in">mkdir</span> ./input</span><br><span class="line">[hadoop@hadoop hadoop]$ <span class="built_in">cp</span> ./etc/hadoop/*.xml ./input <span class="comment"># 将配置文件作为输入文件</span></span><br><span class="line">[hadoop@hadoop hadoop]$ ./bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar</span><br><span class="line">[hadoop@hadoop hadoop]$ grep ./input ./output <span class="string">&#x27;dfs[a-z.]+&#x27;</span></span><br><span class="line">[hadoop@hadoop hadoop]$ <span class="built_in">cat</span> ./output/* <span class="comment"># 查看运行结果</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="Hadoop伪分布式配置"><a href="#Hadoop伪分布式配置" class="headerlink" title="Hadoop伪分布式配置"></a>Hadoop伪分布式配置</h2><blockquote>
+<p>Hadoop 可以在单节点上以伪分布式的方式运行，Hadoop 进程以分离的 Java 进程来运行，节点既作为</p>
+<p>NameNode 也作为 DataNode，同时，读取的是 HDFS 中的文件。</p>
+<p>Hadoop 的配置文件位于 &#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F; 中，伪分布式需要修改2个配置文件 <strong>core-site.xml</strong></p>
+<p>和 <strong>hdfs-site.xml</strong> 。Hadoop的配置文件是 xml 格式，每个配置以声明 property 的 name 和</p>
+<p>value 的方式来实现</p>
+</blockquote>
+<p>先删除input output文件</p>
+<h3 id="step1-修改配置文件-core-site-xml"><a href="#step1-修改配置文件-core-site-xml" class="headerlink" title="step1: 修改配置文件 core-site.xml"></a>step1: 修改配置文件 core-site.xml</h3><blockquote>
+<p>若没有配置 hadoop.tmp.dir 参数，则默认使用的临时目录为 &#x2F;tmp&#x2F;hadoo-hadoop，而这个目录在重</p>
+<p>启时有可能被系统清理掉，导致必须重新执行 format 才行。</p>
+<p>hadoop.tmp.dir：临时文件目录</p>
+<p>fs.defaultFS：集群访问地址。hdfs - 指定文件系统，localhost:9000即namenode的地 址。</p>
+</blockquote>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[hadoop<span class="meta">@hadoop</span> hadoop]$ vim /usr/local/hadoop/etc/hadoop/core-site.xml</span><br><span class="line"></span><br><span class="line"><span class="variable">&lt;configuration&gt;</span></span><br><span class="line">    <span class="variable">&lt;property&gt;</span></span><br><span class="line">        <span class="variable">&lt;name&gt;</span>hadoop.tmp.dir<span class="variable">&lt;/name&gt;</span></span><br><span class="line">        <span class="variable">&lt;value&gt;</span>file:/usr/local/hadoop/tmp<span class="variable">&lt;/value&gt;</span></span><br><span class="line">        <span class="variable">&lt;description&gt;</span>Abase for other temporary directories.<span class="variable">&lt;/description&gt;</span></span><br><span class="line">    <span class="variable">&lt;/property&gt;</span></span><br><span class="line">    <span class="variable">&lt;property&gt;</span></span><br><span class="line">        <span class="variable">&lt;name&gt;</span>fs.defaultFS<span class="variable">&lt;/name&gt;</span></span><br><span class="line">        <span class="variable">&lt;value&gt;</span>hdfs://localhost:9000<span class="variable">&lt;/value&gt;</span></span><br><span class="line">    <span class="variable">&lt;/property&gt;</span></span><br><span class="line"><span class="variable">&lt;/configuration&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="step2-修改配置文件-hdfs-site-xml"><a href="#step2-修改配置文件-hdfs-site-xml" class="headerlink" title="step2: 修改配置文件 hdfs-site.xml"></a>step2: 修改配置文件 hdfs-site.xml</h3><blockquote>
+<p>同时也指定 dfs.namenode.name.dir 和 dfs.datanode.data.dir，否则在接下来的步骤中可能会出错。</p>
+</blockquote>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[hadoop<span class="meta">@hadoop</span> hadoop]$ vim /usr/local/hadoop/etc/hadoop/hdfs-site.xml</span><br><span class="line"></span><br><span class="line"><span class="variable">&lt;configuration&gt;</span></span><br><span class="line">    <span class="variable">&lt;property&gt;</span></span><br><span class="line">        <span class="variable">&lt;name&gt;</span>dfs.replication<span class="variable">&lt;/name&gt;</span></span><br><span class="line">        <span class="variable">&lt;value&gt;</span>1<span class="variable">&lt;/value&gt;</span></span><br><span class="line">    <span class="variable">&lt;/property&gt;</span></span><br><span class="line">    <span class="variable">&lt;property&gt;</span></span><br><span class="line">        <span class="variable">&lt;name&gt;</span>dfs.namenode.name.dir<span class="variable">&lt;/name&gt;</span></span><br><span class="line">        <span class="variable">&lt;value&gt;</span>file:/usr/local/hadoop/tmp/dfs/name<span class="variable">&lt;/value&gt;</span></span><br><span class="line">    <span class="variable">&lt;/property&gt;</span></span><br><span class="line">    <span class="variable">&lt;property&gt;</span></span><br><span class="line">        <span class="variable">&lt;name&gt;</span>dfs.datanode.data.dir<span class="variable">&lt;/name&gt;</span></span><br><span class="line">        <span class="variable">&lt;value&gt;</span>file:/usr/local/hadoop/tmp/dfs/data<span class="variable">&lt;/value&gt;</span></span><br><span class="line">    <span class="variable">&lt;/property&gt;</span></span><br><span class="line"><span class="variable">&lt;/configuration&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="step3-NameNode-的格式化"><a href="#step3-NameNode-的格式化" class="headerlink" title="step3: NameNode 的格式化"></a>step3: NameNode 的格式化</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[hadoop<span class="variable">@hadoop</span> hadoop]<span class="variable">$ </span>cd /usr/local/hadoop</span><br><span class="line"></span><br><span class="line">[hadoop<span class="variable">@hadoop</span> hadoop]<span class="variable">$ </span>./bin/hdfs namenode -format</span><br><span class="line"></span><br><span class="line">开启 NameNode 和 DataNode 守护进程</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> hadoop]<span class="variable">$ </span>cd /usr/local/hadoop</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> hadoop]<span class="variable">$ </span>./sbin/start-dfs.sh 	<span class="comment">#start-dfs.sh是个完整的可执行文件，中间没有空格</span></span><br><span class="line"></span><br><span class="line">JPS正常显示以下</span><br><span class="line"><span class="number">12354</span> Jps</span><br><span class="line"><span class="number">11829</span> NameNode</span><br><span class="line"><span class="number">12214</span> SecondaryNameNode</span><br><span class="line"><span class="number">11961</span> DataNode</span><br><span class="line">表示成功</span><br><span class="line"></span><br><span class="line">网页查询</span><br><span class="line"><span class="symbol">ip:</span><span class="number">9000</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="YARN配置"><a href="#YARN配置" class="headerlink" title="YARN配置"></a>YARN配置</h2><blockquote>
+<p>YARN 负责资源管理与任务调度。YARN 运行于 MapReduce 之上，提供了高可用性、高扩展性。</p>
+<p>启动 YARN 有个好处是可以通过 Web 界面查看任务的运行情况。</p>
+</blockquote>
+<h3 id="step1-修改配置文件mapred-site-xml"><a href="#step1-修改配置文件mapred-site-xml" class="headerlink" title="step1:修改配置文件mapred-site.xml"></a>step1:修改配置文件mapred-site.xml</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /usr/<span class="keyword">local</span>/hadoop/etc/hadoop/mapred-site.xml.<span class="keyword">template</span> /usr/loca/hadoop/etc/hadoop/mapred-site.xml</span><br><span class="line">sudo vim /usr/<span class="keyword">local</span>/hadoop/etc/hadoop/mapred-site.xml</span><br><span class="line"></span><br><span class="line">&lt;<span class="keyword">configuration</span>&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">    	&lt;<span class="type">name</span>&gt;mapreduce.framework.name&lt;/<span class="type">name</span>&gt;</span><br><span class="line">        &lt;<span class="keyword">value</span>&gt;yarn&lt;/<span class="keyword">value</span>&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/<span class="keyword">configuration</span>&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="step2-修改配置文件yarn-site-xml"><a href="#step2-修改配置文件yarn-site-xml" class="headerlink" title="step2:修改配置文件yarn-site.xml"></a>step2:修改配置文件yarn-site.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/local/hadoop/etc/hadoop/yarn-site.xml</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="step3-启动YARN"><a href="#step3-启动YARN" class="headerlink" title="step3:启动YARN"></a>step3:启动YARN</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">先启动hadoop</span><br><span class="line"><span class="regexp">/usr/local</span><span class="regexp">/hadoop/sbin</span><span class="regexp">/start-dfs.sh</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">启动YARN</span></span><br><span class="line"><span class="regexp">/usr</span><span class="regexp">/local/hadoop</span><span class="regexp">/sbin/start</span>-yarn.sh</span><br><span class="line"></span><br><span class="line">执行jps，观察进程情况</span><br><span class="line">jps</span><br><span class="line"><span class="number">15472</span> ResourceManager</span><br><span class="line"><span class="number">14978</span> DataNode</span><br><span class="line"><span class="number">15222</span> SecondaryNameNode</span><br><span class="line"><span class="number">15863</span> Jps</span><br><span class="line"><span class="number">14841</span> NameNode</span><br><span class="line"><span class="number">15595</span> NodeManager</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">YARN Web页面</span><br><span class="line"><span class="symbol">http:</span>/<span class="regexp">/local:8088/cluster</span> 远程：</span><br><span class="line"><span class="symbol">http:</span>/<span class="regexp">/192.168.197.251:8088/cluster</span></span><br><span class="line"></span><br><span class="line">关闭yarn</span><br><span class="line"><span class="regexp">/usr/local</span><span class="regexp">/hadoop/sbin</span><span class="regexp">/stop-yarn.sh</span></span><br><span class="line"><span class="regexp">/usr</span><span class="regexp">/local/hadoop</span><span class="regexp">/sbin/stop</span>-dfs.sh</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Hadoop基础操作"><a href="#Hadoop基础操作" class="headerlink" title="Hadoop基础操作"></a>Hadoop基础操作</h2><h1 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h1><h1 id="Hbase"><a href="#Hbase" class="headerlink" title="Hbase"></a>Hbase</h1><h2 id="先决条件-1"><a href="#先决条件-1" class="headerlink" title="先决条件"></a>先决条件</h2><blockquote>
+<p>centos-7-x86_64-dvd-2009.iso</p>
+<p>VMware Workstation 15.5</p>
+<p>jdk1.8</p>
+<p>hadoop-3.3.1</p>
+<p>hbase-1.1.2</p>
+</blockquote>
+<h2 id="Hbase部署"><a href="#Hbase部署" class="headerlink" title="Hbase部署"></a>Hbase部署</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">解压缩hbase压缩包</span><br><span class="line">[hadoop<span class="variable">@localhost</span> ~]<span class="variable">$ </span>sudo tar -zxvf ./hbase<span class="number">-1.1</span>.<span class="number">2</span>-bin.tar.gz -C /usr/local/</span><br><span class="line"></span><br><span class="line">修改名字，方便操作</span><br><span class="line">[hadoop<span class="variable">@localhost</span> ~]<span class="variable">$ </span>sudo mv /usr/local/hbase<span class="number">-1.1</span>.<span class="number">2</span>-bin /usr/local/hbase</span><br><span class="line"></span><br><span class="line">hbase修改权限</span><br><span class="line">[hadoop<span class="variable">@localhost</span> ~]<span class="variable">$ </span>sudo chown -R <span class="symbol">hadoop:</span>hadoop /usr/local/hbase</span><br><span class="line"></span><br><span class="line">配置环境变量</span><br><span class="line">[hadoop<span class="variable">@localhost</span> ~]<span class="variable">$ </span>sudo vim ~/.bashrc</span><br><span class="line">添加以下内容</span><br><span class="line"><span class="comment"># hbase</span></span><br><span class="line">export <span class="title class_">PATH</span>=<span class="variable">$PATH</span><span class="symbol">:/usr/local/hbase/bin</span></span><br><span class="line"></span><br><span class="line">使环境变量生效</span><br><span class="line">[hadoop<span class="variable">@localhost</span> ~]<span class="variable">$ </span>source ~/.bashrc</span><br><span class="line"></span><br><span class="line">验证是否安装成功</span><br><span class="line">[hadoop<span class="variable">@localhost</span> ~]<span class="variable">$ </span>/usr/local/hbase/bin/hbase version</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Hbase单机配置"><a href="#Hbase单机配置" class="headerlink" title="Hbase单机配置"></a>Hbase单机配置</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim <span class="regexp">/usr/</span>local<span class="regexp">/hbase/</span>conf/hbase-env.sh</span><br><span class="line"></span><br><span class="line">找对应语句,去掉注释</span><br><span class="line">export JAVA_HOME=<span class="regexp">/usr/</span>lib<span class="regexp">/jvm/</span>jdk1.<span class="number">8.0</span>_162</span><br><span class="line">export HBASE_MANAGES_ZK=<span class="keyword">true</span> 				<span class="comment">// 表示由hbase自己管理zookeeper</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/<span class="keyword">local</span>/hbase/conf/hbase-site.xml</span><br><span class="line"></span><br><span class="line">&lt;<span class="keyword">configuration</span>&gt;</span><br><span class="line">            &lt;property&gt;</span><br><span class="line">                    &lt;<span class="type">name</span>&gt;hbase.rootdir&lt;/<span class="type">name</span>&gt;</span><br><span class="line">                    &lt;<span class="keyword">value</span>&gt;file:///usr/<span class="keyword">local</span>/hbase/hbase-tmp&lt;/<span class="keyword">value</span>&gt;</span><br><span class="line">            &lt;/property&gt;</span><br><span class="line">  &lt;/<span class="keyword">configuration</span>&gt;</span><br><span class="line">  </span><br><span class="line">在启动HBase前需要设置属性hbase.rootdir，用于指定HBase数据的存储位置，因为如果不设置的话，hbase.rootdir默认为/tmp/hbase-$&#123;<span class="keyword">user</span>.name&#125;,这意味着每次重启系统都会丢失数据。此处设置为HBase安装目录下的hbase-tmp文件夹即(/usr/<span class="keyword">local</span>/hbase/hbase-tmp)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="Hbase伪分布式模式配置"><a href="#Hbase伪分布式模式配置" class="headerlink" title="Hbase伪分布式模式配置"></a>Hbase伪分布式模式配置</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/local/hbase/conf/hbase-env.sh</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">JAVA_HOME</span>=/usr/lib/jvm/jdk1.8.0_371</span><br><span class="line"><span class="built_in">export</span> <span class="attribute">HBASE_CLASSPATH</span>=/usr/local/hbase/conf </span><br><span class="line"><span class="built_in">export</span> <span class="attribute">HBASE_MANAGES_ZK</span>=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/local/hbase/conf/hbase-site.xml</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            </span><span class="language-xml"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    </span><span class="language-xml"><span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">                    </span><span class="language-xml"><span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9000/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">            </span><span class="language-xml"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    </span><span class="language-xml"><span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">                    </span><span class="language-xml"><span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">            </span><span class="language-xml"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            </span><span class="language-xml"><span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.unsafe.stream.capability.enforce<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">            </span><span class="language-xml"><span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">修改hbase.rootdir，指定HBase数据在HDFS上的存储路径；将属性hbase.cluter.distributed设置<span class="built_in">为true</span>。假设当前Hadoop集群运行在伪分布式模式下，在本机上运行，且NameNode运行在<span class="number">9000</span>端口。</span><br><span class="line">hbase.cluster.distributed设置集群处于分布式模式</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="启动Hbase"><a href="#启动Hbase" class="headerlink" title="启动Hbase"></a>启动Hbase</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[hadoop<span class="variable">@localhost</span> <span class="operator">~</span>]$ cd <span class="operator">/</span>usr<span class="operator">/</span><span class="keyword">local</span><span class="operator">/</span>hbase</span><br><span class="line">[hadoop<span class="variable">@localhost</span> <span class="keyword">local</span>]$ bin<span class="operator">/</span><span class="keyword">start</span><span class="operator">-</span>hbase.sh</span><br><span class="line">[hadoop<span class="variable">@localhost</span> <span class="keyword">local</span>]$ bin<span class="operator">/</span>hbase shell</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="Hbase基础操作"><a href="#Hbase基础操作" class="headerlink" title="Hbase基础操作"></a>Hbase基础操作</h2><p>查看当前表</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">hbase</span><span class="params">(main)</span></span>:<span class="number">001</span>:<span class="number">0</span>&gt; list</span><br></pre></td></tr></table></figure>
+
+
+
+<p>创建表</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">hbase</span><span class="params">(main)</span></span>:<span class="number">002</span>:<span class="number">0</span>&gt; create <span class="string">&#x27;student&#x27;</span>,<span class="string">&#x27;Sname&#x27;</span>,<span class="string">&#x27;Ssex&#x27;</span>,<span class="string">&#x27;Sage&#x27;</span>,<span class="string">&#x27;Sdept&#x27;</span>,<span class="string">&#x27;course&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>查看表基本信息</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">describe</span> <span class="string">&#x27;student&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<p>增加数据</p>
+<blockquote>
+<p>HBase中用put命令添加数据，注意：一次只能为一个表的一行数据的一个列，也就是一个单元格添加一个数据，所以直接用shell命令插入数据效率很低，在实际应用中，一般都是利用编程操作数据。</p>
+</blockquote>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">put &#x27;student&#x27;,&#x27;<span class="number">9500</span>1&#x27;,&#x27;Sname&#x27;,&#x27;LiYing&#x27;</span><br><span class="line"></span><br><span class="line">表示为student表添加了学号为<span class="number">95001</span>，名字为LiYing的一行数据，其行键为<span class="number">95001</span>。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>删除数据</p>
+<blockquote>
+<p>在HBase中用delete以及deleteall命令进行删除数据操作，它们的区别是：</p>
+<ol>
+<li>delete用于删除一个数据，是put的反向操作；</li>
+<li>deleteall操作用于删除一行数据</li>
+</ol>
+</blockquote>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">delete命令</span><br><span class="line">delete &#x27;student&#x27;,&#x27;<span class="number">9500</span>1&#x27;,&#x27;Ssex&#x27;</span><br><span class="line">即删除了student表中<span class="number">95001</span>行下的Ssex列的所有数据</span><br><span class="line"></span><br><span class="line">deleteall命令</span><br><span class="line">deleteall &#x27;student&#x27;,&#x27;<span class="number">9500</span>1&#x27;</span><br><span class="line">即删除了student表中的<span class="number">95001</span>行的全部数据</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h1><h2 id="先决条件-2"><a href="#先决条件-2" class="headerlink" title="先决条件"></a>先决条件</h2><blockquote>
+<p>基于hadoop搭建</p>
+<p>apache-hive-1.2.1</p>
+</blockquote>
+<h1 id="Spark"><a href="#Spark" class="headerlink" title="Spark"></a>Spark</h1><h2 id="Scala环境配置"><a href="#Scala环境配置" class="headerlink" title="Scala环境配置"></a>Scala环境配置</h2><h3 id="JDK部署-1"><a href="#JDK部署-1" class="headerlink" title="JDK部署"></a>JDK部署</h3><p>jdk官方传送门：<a target="_blank" rel="noopener" href="https://www.oracle.com/cn/java/technologies/downloads/">https://www.oracle.com/cn/java/technologies/downloads/</a></p>
+<p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1H3o2BfQWHcjPXCAVz3syHg">https://pan.baidu.com/s/1H3o2BfQWHcjPXCAVz3syHg</a><br>提取码：qx5v</p>
+<p>step1:删除openjdk</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">检查是否含有openjdk</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>rpm -qa|grep java</span><br><span class="line"></span><br><span class="line">如果存在，则先卸载</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>sudo yum remove -y java*</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>sudo yum remove -y python-javapackages-<span class="number">3.4</span>.<span class="number">1</span>-<span class="number">11</span>.el7.noarch</span><br><span class="line">[hadoop<span class="variable">@hadoop</span> ~]<span class="variable">$ </span>sudo yum remove -y tzdata-java-<span class="number">2023</span>c-<span class="number">1</span>.el7.noarch</span><br><span class="line">....和java相关的，都卸载。</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">创建存放jdk1.8的存放目录</span><br><span class="line">[hadoop@hadoop ~]$ sudo <span class="built_in">mkdir</span> /usr/lib/jvm</span><br><span class="line"></span><br><span class="line">解压jdk压缩包</span><br><span class="line">[hadoop@hadoop ~]$ sudo tar -zxvf ./jdk-8u371-linux-x64.tar.gz -C /usr/lib/jvm/</span><br><span class="line"></span><br><span class="line">配置环境变量</span><br><span class="line">[hadoop@hadoop ~]$ vim ~/.bashrc</span><br><span class="line">添加以下内容:	</span><br><span class="line">	<span class="comment"># java</span></span><br><span class="line">	<span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jdk1.8.0_371	</span><br><span class="line">	<span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line">	<span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line">	<span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br><span class="line">	</span><br><span class="line">使环境变量生效</span><br><span class="line">[hadoop@hadoop ~]$ <span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line">验证是否配置成功</span><br><span class="line">[hadoop@hadoop ~]$ java -version</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 id="Scala部署"><a href="#Scala部署" class="headerlink" title="Scala部署"></a>Scala部署</h3><p>Scala传送门：<a target="_blank" rel="noopener" href="https://www.scala-lang.org/download/">安装 |Scala编程语言 (scala-lang.org)</a></p>
+<p>step3:配置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">解压</span><br><span class="line">[hadoop@hadoop <span class="built_in">local</span>]$ sudo tar -zxvf scala-2.11.8.tgz -C /usr/local</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop <span class="built_in">local</span>]$ sudo vim ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment">#scala</span></span><br><span class="line"><span class="built_in">export</span> SCALA_HOME=/usr/local/scala-2.11.8</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SCALA_HOME</span>/bin</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop <span class="built_in">local</span>]$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="Spark部署"><a href="#Spark部署" class="headerlink" title="Spark部署"></a>Spark部署</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">解压</span><br><span class="line">[hadoop<span class="meta">@hadoop</span> soft]$ sudo tar <span class="operator">-</span>zxvf spark<span class="operator">-</span><span class="number">2.3</span>.<span class="number">0</span><span class="operator">-</span>bin<span class="operator">-</span>without<span class="operator">-</span>hadoop.tgz <span class="operator">-</span><span class="type">C</span> <span class="regexp">/usr/</span>local</span><br><span class="line"></span><br><span class="line">改名</span><br><span class="line">[hadoop<span class="meta">@hadoop</span> local]$ sudo mv <span class="regexp">/usr/</span>local<span class="regexp">/spark-2.3.0-bin-without-hadoop/</span> <span class="regexp">/usr/</span>local<span class="operator">/</span>spark</span><br><span class="line"></span><br><span class="line">授予权限</span><br><span class="line">[hadoop<span class="meta">@hadoop</span> local]$ sudo chown <span class="operator">-</span><span class="type">R</span> hadoop:hadoop <span class="regexp">/usr/</span>local<span class="operator">/</span>spark</span><br><span class="line"></span><br><span class="line">复制配置文件</span><br><span class="line">[hadoop<span class="meta">@hadoop</span> local]$ cp <span class="regexp">/usr/</span>local<span class="regexp">/spark/</span>conf<span class="regexp">/spark-env.sh.template /</span>usr<span class="regexp">/local/</span>spark<span class="regexp">/conf/</span>spark<span class="operator">-</span>env.sh</span><br><span class="line"></span><br><span class="line">配置文件</span><br><span class="line">[hadoop<span class="meta">@hadoop</span> local]$ vim <span class="regexp">/usr/</span>local<span class="regexp">/spark/</span>conf<span class="operator">/</span>spark<span class="operator">-</span>env.sh</span><br><span class="line">添加以下内容</span><br><span class="line">export <span class="type">SPARK_DIST_CLASSPATH</span><span class="operator">=</span>$(<span class="regexp">/usr/</span>local<span class="regexp">/hadoop/</span>bin<span class="operator">/</span>hadoop classpath)</span><br><span class="line"></span><br><span class="line">运行<span class="type">Spark示例，验证是否安装成功</span></span><br><span class="line">[hadoop<span class="meta">@hadoop</span> local]$ cd <span class="regexp">/usr/</span>local<span class="operator">/</span>spark</span><br><span class="line">[hadoop<span class="meta">@hadoop</span> spark]$ bin<span class="operator">/</span>run<span class="operator">-</span>example <span class="type">SparkPi</span></span><br><span class="line">[hadoop<span class="meta">@hadoop</span> spark] bin<span class="operator">/</span>run<span class="operator">-</span>example <span class="type">SparkPi</span> <span class="number">2</span><span class="operator">&gt;&amp;</span><span class="number">1</span> <span class="operator">|</span> grep <span class="string">&quot;Pi is&quot;</span></span><br><span class="line"></span><br><span class="line">启动<span class="type">Spark</span> <span class="type">Shell</span></span><br><span class="line">[hadoop<span class="meta">@hadoop</span> spark] cd <span class="regexp">/usr/</span>local<span class="operator">/</span>spark</span><br><span class="line">[hadoop<span class="meta">@hadoop</span> spark] bin<span class="operator">/</span>spark<span class="operator">-</span>shell</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="Spark基本操作"><a href="#Spark基本操作" class="headerlink" title="Spark基本操作"></a>Spark基本操作</h2>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>John Doe</li>
+    <li><strong>本文链接：</strong><a href="https://weiran12123.github.io/weiran12123/2023/10/09/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/index.html" title="https:&#x2F;&#x2F;weiran12123.github.io&#x2F;weiran12123&#x2F;2023&#x2F;10&#x2F;09&#x2F;%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF&#x2F;index.html">https:&#x2F;&#x2F;weiran12123.github.io&#x2F;weiran12123&#x2F;2023&#x2F;10&#x2F;09&#x2F;%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/weiran12123/tags/BigData/" rel="tag">BigData</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/weiran12123/2023/10/09/tools/"><i class="iconfont iconleft"></i>tools</a>
+    <a href="/weiran12123/2023/09/21/Markdown/">Markdown<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hadoop"><span class="toc-text">Hadoop</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6"><span class="toc-text">先决条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAhadoop%E7%94%A8%E6%88%B7"><span class="toc-text">创建hadoop用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESSH"><span class="toc-text">配置SSH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK%E9%83%A8%E7%BD%B2"><span class="toc-text">JDK部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hadoop%E9%83%A8%E7%BD%B2"><span class="toc-text">Hadoop部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hadoop%E5%8D%95%E6%9C%BA"><span class="toc-text">Hadoop单机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hadoop%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="toc-text">Hadoop伪分布式配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#step1-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-core-site-xml"><span class="toc-text">step1: 修改配置文件 core-site.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#step2-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-hdfs-site-xml"><span class="toc-text">step2: 修改配置文件 hdfs-site.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#step3-NameNode-%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-text">step3: NameNode 的格式化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YARN%E9%85%8D%E7%BD%AE"><span class="toc-text">YARN配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#step1-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6mapred-site-xml"><span class="toc-text">step1:修改配置文件mapred-site.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#step2-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6yarn-site-xml"><span class="toc-text">step2:修改配置文件yarn-site.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#step3-%E5%90%AF%E5%8A%A8YARN"><span class="toc-text">step3:启动YARN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hadoop%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="toc-text">Hadoop基础操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MapReduce"><span class="toc-text">MapReduce</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hbase"><span class="toc-text">Hbase</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6-1"><span class="toc-text">先决条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hbase%E9%83%A8%E7%BD%B2"><span class="toc-text">Hbase部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hbase%E5%8D%95%E6%9C%BA%E9%85%8D%E7%BD%AE"><span class="toc-text">Hbase单机配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hbase%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="toc-text">Hbase伪分布式模式配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8Hbase"><span class="toc-text">启动Hbase</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hbase%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="toc-text">Hbase基础操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hive"><span class="toc-text">Hive</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6-2"><span class="toc-text">先决条件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spark"><span class="toc-text">Spark</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">Scala环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK%E9%83%A8%E7%BD%B2-1"><span class="toc-text">JDK部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scala%E9%83%A8%E7%BD%B2"><span class="toc-text">Scala部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spark%E9%83%A8%E7%BD%B2"><span class="toc-text">Spark部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spark%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-text">Spark基本操作</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/weiran12123/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/weiran12123/js/utils.js"></script>
+<script src="/weiran12123/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
