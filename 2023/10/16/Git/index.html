@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Git | 无名军师</title><meta name="author" content="拾光"><meta name="copyright" content="拾光"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="GithubGithub入门文档：GitHub 入门文档 - GitHub 文档 Github库命名规范Github仓库命名规范-CSDN博客 Git版本管理工具git教程git的安装与配置:https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;597447255# Git备份:https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;99313784 Git - 书籍:https:&#x2F;&#x2F;git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="https://weiran12123.github.io/weiran12123/2023/10/16/Git/index.html">
+<meta property="og:site_name" content="无名军师">
+<meta property="og:description" content="GithubGithub入门文档：GitHub 入门文档 - GitHub 文档 Github库命名规范Github仓库命名规范-CSDN博客 Git版本管理工具git教程git的安装与配置:https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;597447255# Git备份:https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;99313784 Git - 书籍:https:&#x2F;&#x2F;git">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://weiran12123.github.io/weiran12123/images/git%E5%A4%96%E9%83%A8%E5%9B%BE.png">
+<meta property="article:published_time" content="2023-10-16T13:46:22.000Z">
+<meta property="article:modified_time" content="2024-01-01T17:36:22.591Z">
+<meta property="article:author" content="拾光">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://weiran12123.github.io/weiran12123/images/git%E5%A4%96%E9%83%A8%E5%9B%BE.png"><link rel="shortcut icon" href="https://w.wallhaven.cc/full/d6/wallhaven-d6odmg.jpg"><link rel="canonical" href="https://weiran12123.github.io/weiran12123/2023/10/16/Git/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/weiran12123.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/weiran12123.github.io/',
+  algolia: undefined,
+  localSearch: {"path":"/weiran12123.github.io/search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Git',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-02 01:36:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/weiran12123.github.io/images/%E5%A4%B4%E5%83%8F.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/weiran12123.github.io/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/weiran12123.github.io/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/weiran12123.github.io/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/weiran12123.github.io/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/weiran12123.github.io/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/weiran12123.github.io/images/git%E5%A4%96%E9%83%A8%E5%9B%BE.png')"><nav id="nav"><span id="blog-info"><a href="/weiran12123.github.io/" title="无名军师"><span class="site-name">无名军师</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/weiran12123.github.io/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/weiran12123.github.io/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-16T13:46:22.000Z" title="发表于 2023-10-16 21:46:22">2023-10-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-01T17:36:22.591Z" title="更新于 2024-01-02 01:36:22">2024-01-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/weiran12123.github.io/categories/Study/">Study</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Git"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><p>Github入门文档：<a target="_blank" rel="noopener" href="https://docs.github.com/zh/get-started">GitHub 入门文档 - GitHub 文档</a></p>
+<h1 id="Github库命名规范"><a href="#Github库命名规范" class="headerlink" title="Github库命名规范"></a>Github库命名规范</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42707446/article/details/83013845">Github仓库命名规范-CSDN博客</a></p>
+<h1 id="Git版本管理工具"><a href="#Git版本管理工具" class="headerlink" title="Git版本管理工具"></a>Git版本管理工具</h1><h2 id="git教程"><a href="#git教程" class="headerlink" title="git教程"></a>git教程</h2><p>git的安装与配置:<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/597447255#">https://zhuanlan.zhihu.com/p/597447255#</a></p>
+<p>Git备份:<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/99313784">https://zhuanlan.zhihu.com/p/99313784</a></p>
+<p>Git - 书籍:<a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p>
+<p>git 使用简易指南:<a target="_blank" rel="noopener" href="https://www.bootcss.com/p/git-guide/">https://www.bootcss.com/p/git-guide/</a></p>
+<h2 id="git下载"><a href="#git下载" class="headerlink" title="git下载"></a>git下载</h2><p>Git - 下载:<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<h3 id="Centos7安装git"><a href="#Centos7安装git" class="headerlink" title="Centos7安装git"></a>Centos7安装git</h3><p>CentOS7安装Git:<a target="_blank" rel="noopener" href="https://blog.csdn.net/xwj1992930/article/details/96428998">https://blog.csdn.net/xwj1992930/article/details/96428998</a></p>
+<h4 id="yum方式"><a href="#yum方式" class="headerlink" title="yum方式"></a>yum方式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h4><p>1.安装前要手动安装下依赖包（可使用rpm -qa | grep wget命令查看是否有安装包）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y wget</span><br><span class="line">sudo yum install -y gcc-c++</span><br><span class="line">sudo yum install -y zlib-devel perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2.去官网下载最新版本的git源码包,或者将压缩包拷贝过来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.9.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3.接下来就是解压，配置，安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf git-2.9.0.tar.gz</span><br><span class="line">cd git-2.9.0</span><br><span class="line">./configure --prefix=/usr/local</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line">./configure后面的–prefix=/usr/local，指定安装路径为usr/local</span><br></pre></td></tr></table></figure>
+
+
+
+<p>4.查看git版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<p>git指令清单:<a target="_blank" rel="noopener" href="https://training.github.com/">https://training.github.com/</a></p>
+<h2 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">git 配置</span><br><span class="line"></span><br><span class="line">git config --global user.name weiran12123</span><br><span class="line"></span><br><span class="line">git config --global user.email weiran12123@163.com</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查询git配置：</span><br><span class="line"></span><br><span class="line">git config --global --list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">生成.git文件,初始化</span><br><span class="line"></span><br><span class="line">git init </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">备份文件</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m &quot;1.0版本&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看git备份日志</span><br><span class="line"></span><br><span class="line">git log</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">恢复某个版本的文件</span><br><span class="line"></span><br><span class="line">git reset --hard 版本序列号 </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="git上传github"><a href="#git上传github" class="headerlink" title="git上传github"></a>git上传github</h2><p>上传文件到GitHub上的两种方法:<a target="_blank" rel="noopener" href="https://blog.csdn.net/erhuobuer/article/details/89343380">https://blog.csdn.net/erhuobuer/article/details/89343380</a></p>
+<p>以下用的:用Git与GitHub来管理项目-上传&#x2F;覆盖&#x2F;删除:<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46419510/article/details/110499832">https://blog.csdn.net/m0_46419510/article/details/110499832</a></p>
+<p>创建关联</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 关联账号</span><br><span class="line">ssh-keygen -t rsa -C “你的邮箱”</span><br><span class="line"></span><br><span class="line">关联仓库</span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line">git remote add origin 仓库ssh地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 删除仓库关联</span><br><span class="line">git remote rm origin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 更换仓库</span><br><span class="line">git remote set-url origin 仓库ssh地址</span><br></pre></td></tr></table></figure>
+
+
+
+<p>添加上传</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m &quot;把文件提交，这里是注释&quot;</span><br><span class="line"></span><br><span class="line">git tag -a 1.0.1 -m “1.0.1” //添加版本号</span><br><span class="line"></span><br><span class="line"> master分支</span><br><span class="line"> git branch -M master //选择master分支，可以改名上传其它分支</span><br><span class="line"> git push -u origin master</span><br><span class="line"> </span><br><span class="line"> main分支</span><br><span class="line"> git branch -M main //选择main分支，可以改名上传其它分支</span><br><span class="line"> git push -u origin main</span><br><span class="line"> </span><br><span class="line"> 其他分支</span><br><span class="line"> git branch -M &#x27;其他分支名字&#x27;</span><br><span class="line"> git push -u origin &#x27;其他分支名字&#x27;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> 出现错误</span><br><span class="line">git pull --rebase origin master //本地文件没有远程仓库的全部文件，如readme.md</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>git删除分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># git删除远程分支</span><br><span class="line">git push origin --delete [分支名称]</span><br><span class="line">推送空分支到远程（删除远程分支另一种实现）git push origin :远程分支</span><br><span class="line"></span><br><span class="line"># 删除本地分支</span><br><span class="line"># 删除本地分支区别</span><br><span class="line">git branch -d 会在删除前检查merge状态（其与上游分支或者与head）。</span><br><span class="line">git branch -D 是git branch --delete --force的简写，它会直接删除。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>删除</p>
+<p>Git：移除文件—-git rm命令的使用:<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42780289/article/details/98353792">https://blog.csdn.net/qq_42780289/article/details/98353792</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">通过以下指令删除指定文件</span><br><span class="line">git rm 文件.后缀</span><br><span class="line"></span><br><span class="line">通过以下指令可以删除指定文件夹</span><br><span class="line">git rm -r 文件夹</span><br><span class="line"></span><br><span class="line">最后，必要通过以下指令提交修改：</span><br><span class="line">git commit -m &quot;注释&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">查看本地分支：</span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line">查看远程分支</span><br><span class="line">git branch -r</span><br><span class="line"></span><br><span class="line">查看关联仓库地址：</span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="git分支知识"><a href="#git分支知识" class="headerlink" title="git分支知识"></a>git分支知识</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44098452/article/details/115317258">(四) github分支的知识_github 分支_-Toupi.的博客-CSDN博客</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">//查看分支列表</span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line">//创建新分支</span><br><span class="line">git branch 新分支的名字</span><br><span class="line"></span><br><span class="line">//切换分支</span><br><span class="line">git checkout 分支名字</span><br><span class="line"></span><br><span class="line">//分支的快速创建和切换</span><br><span class="line">git checkout -b 分支名字</span><br><span class="line"></span><br><span class="line">合并分支</span><br><span class="line">//假如在C分支</span><br><span class="line">//先切换到A分支</span><br><span class="line">git checkout A</span><br><span class="line">//此时在A分支，合并A，C分支</span><br><span class="line">git merge C</span><br><span class="line"></span><br><span class="line">//删除分支</span><br><span class="line">git branch -d xxx</span><br><span class="line"></span><br><span class="line"># 将本地分支推送到远程仓库</span><br><span class="line">// -u 表示把本地分支和远程分支进行关联，只在第一次推送的时候需要带 -u 参数</span><br><span class="line">git push -u 远程仓库的别名 本地分支名称: 远程分支名称</span><br><span class="line"></span><br><span class="line">//案例</span><br><span class="line">git push -u origin payment:pay</span><br><span class="line"></span><br><span class="line">//如果希望远程分支的名称和本地分支名称保持一直，可以对命令进行简化：</span><br><span class="line">git push -u origin payment</span><br><span class="line"></span><br><span class="line"># 查看远程仓库中所有的分支列表</span><br><span class="line">git remote show 远程仓库名称</span><br><span class="line"></span><br><span class="line"> 跟踪分支</span><br><span class="line">// 从远程仓库中，把对应的远程分支下载到本地仓库，名字保持一致</span><br><span class="line">git checkout 远程分支的名称</span><br><span class="line"></span><br><span class="line">//从远程仓库中，把对应的远程分支下载到本地仓库，并把下载的本地分支进行重命名</span><br><span class="line">git checkout -b 本地分支名称 远程仓库名称/远程分支名称</span><br><span class="line"></span><br><span class="line">//案例  把远程仓库origin里面的pay分支下载并重命名为payment分支</span><br><span class="line">git checkout -b payment origin/pay</span><br><span class="line"></span><br><span class="line">#  拉取远程分支的最新的代码</span><br><span class="line">//从远程仓库，拉区当前分支的最新代码，保持当前分支的代码和远程分支的代码一致</span><br><span class="line">git pull </span><br><span class="line"></span><br><span class="line"># 删除远程分支</span><br><span class="line">git push 远程仓库名称 --delete 远程分支名称</span><br><span class="line">//案例</span><br><span class="line">git push origin--delete pay</span><br><span class="line"></span><br><span class="line">1）Git 中基本命令的使用</span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit –m “提交消息”</span><br><span class="line">git status 和 git status -s</span><br><span class="line"></span><br><span class="line">2）Github 创建和维护远程仓库</span><br><span class="line">能够配置 Github 的 SSH 访问</span><br><span class="line">能够将本地仓库上传到 Github</span><br><span class="line"></span><br><span class="line">3）Git 分支的基本使用</span><br><span class="line">git checkout -b 新分支名称</span><br><span class="line">git push -u origin 新分支名称</span><br><span class="line">git checkout 分支名称</span><br><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="下载三方项目"><a href="#下载三方项目" class="headerlink" title="下载三方项目"></a>下载三方项目</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &#x27;url&#x27;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://weiran12123.github.io/weiran12123">拾光</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://weiran12123.github.io/weiran12123/2023/10/16/Git/">https://weiran12123.github.io/weiran12123/2023/10/16/Git/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://weiran12123.github.io/weiran12123" target="_blank">无名军师</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/weiran12123.github.io/images/git%E5%A4%96%E9%83%A8%E5%9B%BE.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/weiran12123.github.io/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/weiran12123.github.io/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/weiran12123.github.io/img/zhifubao.jpg" target="_blank"><img class="post-qr-code-img" src="/weiran12123.github.io/img/zhifubao.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/weiran12123.github.io/2024/06/27/hello-world/" title="Hello World"><img class="cover" src="https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg" onerror="onerror=null;src='/weiran12123.github.io/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hello World</div></div></a></div><div class="next-post pull-right"><a href="/weiran12123.github.io/2023/10/11/Pr/" title="Pr"><img class="cover" src="/weiran12123.github.io/images/Pr.jpg" onerror="onerror=null;src='/weiran12123.github.io/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Pr</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/weiran12123.github.io/images/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">拾光</div><div class="author-info__description">人生天地间,忽如远行客</div></div><div class="card-info-data site-data is-center"><a href="/weiran12123.github.io/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/weiran12123.github.io/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/weiran12123.github.io/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/weiran12123"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/weiran12123" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_69523986?spm=1018.2226.3001.5343" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="mailto:weiran12123@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2193914120&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里是拾光的的个人博客，分享学习生活中的各种琐事，有问题欢迎交流探讨</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Github"><span class="toc-number">1.</span> <span class="toc-text">Github</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Github%E5%BA%93%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">2.</span> <span class="toc-text">Github库命名规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-number">3.</span> <span class="toc-text">Git版本管理工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E6%95%99%E7%A8%8B"><span class="toc-number">3.1.</span> <span class="toc-text">git教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E4%B8%8B%E8%BD%BD"><span class="toc-number">3.2.</span> <span class="toc-text">git下载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Centos7%E5%AE%89%E8%A3%85git"><span class="toc-number">3.2.1.</span> <span class="toc-text">Centos7安装git</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#yum%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">yum方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">源码安装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">3.3.</span> <span class="toc-text">git常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E4%B8%8A%E4%BC%A0github"><span class="toc-number">3.4.</span> <span class="toc-text">git上传github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%88%86%E6%94%AF%E7%9F%A5%E8%AF%86"><span class="toc-number">3.5.</span> <span class="toc-text">git分支知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%B8%89%E6%96%B9%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.6.</span> <span class="toc-text">下载三方项目</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/weiran12123.github.io/2024/06/27/hello-world/" title="Hello World"><img src="https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/weiran12123.github.io/2024/06/27/hello-world/" title="Hello World">Hello World</a><time datetime="2024-06-26T16:09:22.799Z" title="发表于 2024-06-27 00:09:22">2024-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/weiran12123.github.io/2023/10/16/Git/" title="Git"><img src="/weiran12123.github.io/images/git%E5%A4%96%E9%83%A8%E5%9B%BE.png" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/404.jpg'" alt="Git"/></a><div class="content"><a class="title" href="/weiran12123.github.io/2023/10/16/Git/" title="Git">Git</a><time datetime="2023-10-16T13:46:22.000Z" title="发表于 2023-10-16 21:46:22">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/weiran12123.github.io/2023/10/11/Pr/" title="Pr"><img src="/weiran12123.github.io/images/Pr.jpg" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/404.jpg'" alt="Pr"/></a><div class="content"><a class="title" href="/weiran12123.github.io/2023/10/11/Pr/" title="Pr">Pr</a><time datetime="2023-10-11T13:19:52.000Z" title="发表于 2023-10-11 21:19:52">2023-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/weiran12123.github.io/2023/10/09/tools/" title="tools"><img src="/weiran12123.github.io/images/tools.jpg" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/404.jpg'" alt="tools"/></a><div class="content"><a class="title" href="/weiran12123.github.io/2023/10/09/tools/" title="tools">tools</a><time datetime="2023-10-09T06:45:53.000Z" title="发表于 2023-10-09 14:45:53">2023-10-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/weiran12123.github.io/2023/10/09/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/" title="大数据开发技术"><img src="/weiran12123.github.io/images/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF.png" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/404.jpg'" alt="大数据开发技术"/></a><div class="content"><a class="title" href="/weiran12123.github.io/2023/10/09/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/" title="大数据开发技术">大数据开发技术</a><time datetime="2023-10-09T02:04:26.000Z" title="发表于 2023-10-09 10:04:26">2023-10-09</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/weiran12123.github.io/images/git%E5%A4%96%E9%83%A8%E5%9B%BE.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 拾光</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/weiran12123.github.io/js/utils.js"></script><script src="/weiran12123.github.io/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/weiran12123.github.io/js/search/local-search.js"></script></div></div></body></html>

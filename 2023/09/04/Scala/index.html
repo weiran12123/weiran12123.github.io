@@ -1,0 +1,1189 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Scalc | 无名军师</title><meta name="author" content="拾光"><meta name="copyright" content="拾光"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Scala概述历史&amp;ensp;&amp;ensp;Scala是一种通用的编程语言。它是由Martin Odersky创建和开发的。 Martin于2001年开始在洛桑联邦理工学院(EPFL)从事Scala的研究。它于 2004年1月20日正式发布。  &amp;ensp;&amp;ensp;马丁·奥德斯基是编译器及编程的狂热爱好者，长时间的编程之后，希望 发明一种语言，能够让写程序这样的基础工作变得高效，简单。所以当接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scalc">
+<meta property="og:url" content="https://weiran12123.github.io/weiran12123/2023/09/04/Scala/index.html">
+<meta property="og:site_name" content="无名军师">
+<meta property="og:description" content="Scala概述历史&amp;ensp;&amp;ensp;Scala是一种通用的编程语言。它是由Martin Odersky创建和开发的。 Martin于2001年开始在洛桑联邦理工学院(EPFL)从事Scala的研究。它于 2004年1月20日正式发布。  &amp;ensp;&amp;ensp;马丁·奥德斯基是编译器及编程的狂热爱好者，长时间的编程之后，希望 发明一种语言，能够让写程序这样的基础工作变得高效，简单。所以当接">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://weiran12123.github.io/weiran12123/images/Scala.jpg">
+<meta property="article:published_time" content="2023-09-04T08:42:11.000Z">
+<meta property="article:modified_time" content="2024-01-02T03:28:32.416Z">
+<meta property="article:author" content="拾光">
+<meta property="article:tag" content="Scala">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://weiran12123.github.io/weiran12123/images/Scala.jpg"><link rel="shortcut icon" href="https://w.wallhaven.cc/full/d6/wallhaven-d6odmg.jpg"><link rel="canonical" href="https://weiran12123.github.io/weiran12123/2023/09/04/Scala/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/weiran12123.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/weiran12123.github.io/',
+  algolia: undefined,
+  localSearch: {"path":"/weiran12123.github.io/search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Scalc',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-02 11:28:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/weiran12123.github.io/images/%E5%A4%B4%E5%83%8F.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/weiran12123.github.io/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/weiran12123.github.io/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/weiran12123.github.io/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/weiran12123.github.io/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/weiran12123.github.io/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/weiran12123.github.io/images/Scala.jpg')"><nav id="nav"><span id="blog-info"><a href="/weiran12123.github.io/" title="无名军师"><span class="site-name">无名军师</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/weiran12123.github.io/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/weiran12123.github.io/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/weiran12123.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/weiran12123.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Scalc</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-04T08:42:11.000Z" title="发表于 2023-09-04 16:42:11">2023-09-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-02T03:28:32.416Z" title="更新于 2024-01-02 11:28:32">2024-01-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/weiran12123.github.io/categories/Study/">Study</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>31分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Scalc"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Scala概述"><a href="#Scala概述" class="headerlink" title="Scala概述"></a>Scala概述</h1><h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>&ensp;&ensp;Scala是一种通用的编程语言。它是由Martin Odersky创建和开发的。 Martin于2001年开始在洛桑联邦理工学院(EPFL)从事Scala的研究。它于 2004年1月20日正式发布。 </p>
+<p>&ensp;&ensp;马丁·奥德斯基是编译器及编程的狂热爱好者，长时间的编程之后，希望 发明一种语言，能够让写程序这样的基础工作变得高效，简单。所以当接 触到JAVA语言后，对JAVA这门便携式，运行在网络，且存在垃圾回收的 语言产生了极大的兴趣，所以决定将函数式编程语言的特点融合到JAVA 中，由此发明了 两种语言 (Pizza &amp; Scala)。 </p>
+<p>&ensp;&ensp;Pizza和Scala极大地推动了Java编程语言的发展。 </p>
+<ul>
+<li>JDK5.0 的泛型、增强for循环、自动类型转换等，都是从Pizza引入的新特性 </li>
+<li>JDK8.0 的类型推断、Lambda表达式就是从Scala引入的特性。 </li>
+<li>JDK5.0和JDK8.0的编辑器就是马丁·奥德斯基写的，因此马丁·奥德斯基一个人 的战斗力抵得上一个Java开发团队。</li>
+</ul>
+<ol>
+<li><p>Scala源自Java </p>
+<ul>
+<li>Scala构建在JVM之上 </li>
+<li>Scala与Java兼容、互通</li>
+</ul>
+</li>
+<li><p>Scala的优势 </p>
+<ul>
+<li>多范式编程：面向对象编程、函数式编程 </li>
+<li>表达能力强，代码精简</li>
+</ul>
+</li>
+<li><p>大数据与Scala </p>
+<ul>
+<li>Spark采用Scala语言设计 <ul>
+<li>提供的API更加优雅 </li>
+<li>基于JVM的语言更融入Hadoop生态圈</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>spark的兴起，带动了scala的发展</p>
+</li>
+</ol>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li><p>面向对象特性</p>
+<ul>
+<li>每个值都是对象</li>
+<li>对象的数据类型和行为由类（Class）和特征（Trait，类似于interface）描述</li>
+<li>利用特征实现混入式多重继承</li>
+</ul>
+</li>
+<li><p>函数式编程</p>
+<ul>
+<li><p>每个函数都是一个值</p>
+</li>
+<li><p>支持高阶函数、柯里化(currying)、样例类（case class）及模式匹配</p>
+</li>
+</ul>
+</li>
+<li><p>Scala是静态类型语言 </p>
+</li>
+<li><p>扩展性</p>
+</li>
+</ol>
+<h1 id="Scala部署"><a href="#Scala部署" class="headerlink" title="Scala部署"></a>Scala部署</h1><h2 id="Window版本"><a href="#Window版本" class="headerlink" title="Window版本"></a>Window版本</h2><p>Step1.下载安装包</p>
+<p>[Scala下载地址]<a target="_blank" rel="noopener" href="https://www.scala-lang.org/download/">Install | The Scala Programming Language (scala-lang.org)</a></p>
+<p><img src="/weiran12123.github.io/pic/Scala/scala1.png" alt="Scala文件"></p>
+<p>Step2.安装JDK</p>
+<p>Step3.安装Scala插件</p>
+<p><img src="/weiran12123.github.io/pic/Scala/scala2.png" alt="Scala插件安装"></p>
+<h2 id="Linux版本"><a href="#Linux版本" class="headerlink" title="Linux版本"></a>Linux版本</h2><p>step1:安装jdk</p>
+<p>jdk下载地址：<a target="_blank" rel="noopener" href="https://www.oracle.com/cn/java/technologies/downloads/">https://www.oracle.com/cn/java/technologies/downloads/</a></p>
+<p>百度网盘下载:</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1H3o2BfQWHcjPXCAVz3syHg">https://pan.baidu.com/s/1H3o2BfQWHcjPXCAVz3syHg</a><br>提取码：qx5v</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lib</span><br><span class="line"></span><br><span class="line">sudo mkdir jvm</span><br><span class="line"></span><br><span class="line">sudo tar -zxvf ./jdk-8u371-linux-x64.tar.gz -C /usr/lib/jvm</span><br><span class="line"></span><br><span class="line">vim ~/.bashrc</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_371</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br><span class="line"></span><br><span class="line">source ~/.bashrc</span><br><span class="line"></span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>step2:Scala安装包准备</p>
+<p><a target="_blank" rel="noopener" href="https://www.scala-lang.org/download/">安装 |Scala编程语言 (scala-lang.org)</a></p>
+<p>step3:配置环境变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"></span><br><span class="line">#scala</span><br><span class="line">export SCALA_HOME=/usr/local/scala-2.13.0</span><br><span class="line">export PATH=$PATH:$SCALA_HOME/bin</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="Scala数据类型"><a href="#Scala数据类型" class="headerlink" title="Scala数据类型"></a>Scala数据类型</h1><h2 id="Scala变量与常量"><a href="#Scala变量与常量" class="headerlink" title="Scala变量与常量"></a>Scala变量与常量</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p># 赋值后可以改变，生命周期中可以被多次赋值</p>
+<p>var 变量名称:类型 &#x3D; 值</p>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p># 赋值后不可变，类似于Java中的final变量</p>
+<p>val 常量名称:类型 &#x3D; 值</p>
+<p>变量案例</p>
+<p><img src="/weiran12123.github.io/pic/Scala/scala3.png" alt="图片失效"></p>
+<p>常量案例</p>
+<p><img src="/weiran12123.github.io/pic/Scala/scala4.png" alt="图片失效"></p>
+<p>从图片中可以看出常量类型不可变，会报错</p>
+<h2 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h2><h3 id="type关键字"><a href="#type关键字" class="headerlink" title="type关键字"></a>type关键字</h3><p>&ensp;&ensp;type 类型别名 &#x3D; 类型</p>
+<p>案例</p>
+<p><img src="/weiran12123.github.io/pic/Scala/scala5.png.png" alt="image-20230904173414655"></p>
+<p><img src="/weiran12123.github.io/pic/Scala/scala6.png" alt="image-20230904173421547"></p>
+<h2 id="Scala数据类型层次结构"><a href="#Scala数据类型层次结构" class="headerlink" title="Scala数据类型层次结构"></a>Scala数据类型层次结构</h2><p><img src="/weiran12123.github.io/pic/Scala/scala7.png" alt="图片失效"></p>
+<h2 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Byte			-128到127									8位符号补码整数</span><br><span class="line">short			-32768到32767								16位符号补码整数</span><br><span class="line">int				-2147483648到2147483647						 32位符号补码整数</span><br><span class="line">long			-9223372036854775808到9223372036854775807	   64位符号补码整数	</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 正确</span><br><span class="line">var n1:Byte = 127</span><br><span class="line">var n2:Byte = -128</span><br><span class="line"></span><br><span class="line">// 错误</span><br><span class="line">// var n3:Byte = 128</span><br><span class="line">// var </span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 正确</span><br><span class="line">var n1:Byte = 127</span><br><span class="line">var n2:Byte = -128</span><br><span class="line"></span><br><span class="line">// 错误</span><br><span class="line">// var n3:Byte = 128</span><br><span class="line">// var n4:Byte = -129</span><br><span class="line">//Scala的整型，默认为Int型，声明Long型，须后加‘l’或‘L’</span><br><span class="line">var n6 = 9223372036854775807L</span><br><span class="line">//Scala程序中变量常声明为Int型，除非不足以表示大数，才使用Long</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="浮点类型"><a href="#浮点类型" class="headerlink" title="浮点类型"></a>浮点类型</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">float		32位,IEEE754标准单精度浮点数</span><br><span class="line">double		64位,IEEE754标准双精度浮点数</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//Scala的浮点型常量默认为Double型，声明Float型常量，须后加‘f’或‘F’</span><br><span class="line">// 建议在开发中需要高精度小数时，请选择Double</span><br><span class="line">var n7 = 2.2345678912f</span><br><span class="line">var n8 = 2.2345678912</span><br><span class="line">println(&quot;n7=&quot; + n7)</span><br><span class="line">println(&quot;n8=&quot; + n8)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="char类型"><a href="#char类型" class="headerlink" title="char类型"></a>char类型</h2><blockquote>
+<p>字符类型可以表示单个字符，字符类型是Char</p>
+<blockquote>
+<ol>
+<li>字符常量是用单引号 ‘ ‘ 括起来的单个字符</li>
+<li>\t ：一个制表位，实现对齐的功能</li>
+<li>\n ：换行符</li>
+<li>\ ：表示\</li>
+<li>&quot; ：表示</li>
+</ol>
+</blockquote>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">案例:</span><br><span class="line">//（1）字符常量是用单引号 &#x27; &#x27; 括起来的单个字符。</span><br><span class="line">var c1: Char = &#x27;a&#x27; println(&quot;c1=&quot; + c1)</span><br><span class="line">//注意：这里涉及自动类型提升，其实编译器可以自定判断是否超出范围，不过idea提示报错</span><br><span class="line">var c2:Char = &#x27;a&#x27; + 1</span><br><span class="line">println(c2)</span><br><span class="line">//（2）\t ：一个制表位，实现对齐的功能</span><br><span class="line">println(&quot;姓名\t年龄&quot;)</span><br><span class="line">//（3）\n ：换行符</span><br><span class="line">println(&quot;西门庆\n潘金莲&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h2><blockquote>
+<p>布尔类型也叫Boolean类型。</p>
+<blockquote>
+<p>Booolean类型数据只允许取值true和false</p>
+<p>boolean类型占1个字节</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">案例:</span><br><span class="line">var isResult : Boolean = false</span><br><span class="line">var isResult2 : Boolean = t</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="Unit类型，Null类型，Nothing类型"><a href="#Unit类型，Null类型，Nothing类型" class="headerlink" title="Unit类型，Null类型，Nothing类型"></a>Unit类型，Null类型，Nothing类型</h2><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Unit</td>
+<td align="center">表示无值，和其他语言中的void相同。作用不返回任何结果的方法的结果类型。Unit只有一个实例值，写成()</td>
+</tr>
+<tr>
+<td align="center">Null</td>
+<td align="center">null,Null类型只有一个实例值null</td>
+</tr>
+<tr>
+<td align="center">Nothing</td>
+<td align="center">Nothing类型在Scala的类层级最低端;他是任何其他类型的子类型。当一个函数，我们确定没有正常的返回值，可以用Nothing来指定返回类型,这样有一个好处，就是我们可以把返回的值(异常)赋给其它的函数或者变量(兼容性)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Unit类型用来标识过程，也就是没有明确返回值的函数</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//Unit类型用来标识过程，也就是没有明确返回值的函数。</span><br><span class="line">//Unit类似于Java里的void。Unit只有一个实例——( )，这个实例也没有实质意义</span><br><span class="line">def sayOk : Unit = &#123;// unit表示没有返回值，即void</span><br><span class="line">&#125;</span><br><span class="line">println(sayOk)</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Null类只有一个实例对象</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//Null类似于Java中的null引用。</span><br><span class="line">//Null可以赋值给任意引用类型（AnyRef），但是不能赋值给值类型（AnyVal）</span><br><span class="line">var cat = new Cat();</span><br><span class="line">cat = null // 正确</span><br><span class="line">var n1: Int = null // 错误</span><br><span class="line">println(&quot;n1:&quot; + n1)</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Nothing，是所有类型的子类型，它表示不可实例化的值</p>
+<blockquote>
+<p>Nothing类型主要用于描述不正常的终止和异常处理。例如，当我们需要一个函数永远 不会返回时，可以将该函数的返回类型声明为Nothing类型。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//非常直观的告诉你这个方法不会正常返回</span><br><span class="line">def test() : Nothing=&#123;</span><br><span class="line">throw new Exception()</span><br><span class="line">&#125;</span><br><span class="line">test</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="Scala-简单功能"><a href="#Scala-简单功能" class="headerlink" title="Scala 简单功能"></a>Scala 简单功能</h1><h2 id="键盘键入"><a href="#键盘键入" class="headerlink" title="键盘键入"></a>键盘键入</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package day02</span><br><span class="line"></span><br><span class="line">import scala.io.StdIn</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">* 测试Scala键盘键入</span><br><span class="line">* */</span><br><span class="line">object chap1 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    // 接受键盘的输入</span><br><span class="line">    println(&quot;请输入你的姓名:&quot;)</span><br><span class="line">    var name:String = StdIn.readLine()</span><br><span class="line">    println(&quot;你的姓名是:&quot;+name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="自动类型装换"><a href="#自动类型装换" class="headerlink" title="自动类型装换"></a>自动类型装换</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 自动提升原则，精度低的向精度高的转换</span><br><span class="line">int1 = 145</span><br><span class="line">byte1 = 112</span><br><span class="line">val result = int1 + byte1</span><br><span class="line">println(result.getClass)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// </span><br><span class="line">byte1 = int1 // 报错</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// (byte.short)和char不会自动转换</span><br><span class="line">var byte2:Byte = 123</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">byte，short，char运算的时候，自动转换int</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">String类型转基本数值类型（语法：s1.toInt、s1.toFloat、s1.toDouble、s1.toByte、s1.toLong、s1.toShort）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">基本类型转String类型（语法：将基本类型的值+&quot;&quot; 即可）</span><br><span class="line"></span><br><span class="line">        var str1 : String = true + &quot;&quot;</span><br><span class="line"></span><br><span class="line">        var str2 : String = 4.5 + &quot;&quot;</span><br><span class="line"></span><br><span class="line">        var str3 : String = 100 +&quot;&quot;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">String类型转基本数值类型（语法：调用相关API）</span><br><span class="line"></span><br><span class="line">        var s1 : String = &quot;12&quot;</span><br><span class="line"></span><br><span class="line">        var n1 : Byte = s1.toByte</span><br><span class="line"></span><br><span class="line">        var n2 : Short = s1.toShort</span><br><span class="line"></span><br><span class="line">        var n3 : Int = s1.toInt</span><br><span class="line"></span><br><span class="line">        var n4 : Long = s1.toLong</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="Scala条件循环控制"><a href="#Scala条件循环控制" class="headerlink" title="Scala条件循环控制"></a>Scala条件循环控制</h1><h2 id="if表达式"><a href="#if表达式" class="headerlink" title="if表达式"></a>if表达式</h2><p>if表达式的定义：scala中，表达式是有值的，就是if或者else中最后一行语句返 回的值（和java区别）</p>
+<p>if表达式类型推断</p>
+<ul>
+<li><p>表达式有值的，如果if返回值类型和else返回值类型不同时，scala会自动推断，取两<br>个类型的公共父类型（Any是Int 和String的父类型）；</p>
+</li>
+<li><p>If后面没有跟else，则默认else的值为Unit，也用（）表示，类似于java中的void和<br>null</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if格式:</span><br><span class="line"></span><br><span class="line">if (条件表达式1) &#123;</span><br><span class="line">执行代码块1</span><br><span class="line">&#125;</span><br><span class="line">else if (条件表达式2) &#123;</span><br><span class="line">执行代码块2</span><br><span class="line">&#125; ……</span><br><span class="line">else &#123;</span><br><span class="line">执行代码块n</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">案例:cmd中</span><br><span class="line">scala&gt; var score=100</span><br><span class="line">score: Int = 100</span><br><span class="line">scala&gt; if (score&gt;60) 1 else 0</span><br><span class="line">res0: Int =1</span><br><span class="line">scala&gt; if (score&gt;60) hege=1 else hege =0</span><br><span class="line">scala&gt; hege</span><br><span class="line">res2: Int =1</span><br><span class="line">scala&gt; if(score&gt;60) “合格” else 0</span><br><span class="line">res3: Any = 合格</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">案例:idea中</span><br><span class="line">object Test &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    var score:Int=60</span><br><span class="line">    if(score&gt;=60&amp;&amp;score&lt;=100)&#123;</span><br><span class="line">      println(&quot;及格&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    else if(score&lt;60)&#123;</span><br><span class="line">      println(&quot;不及格&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">      println(&quot;分数不合理&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="语句终结符号，块表达式"><a href="#语句终结符号，块表达式" class="headerlink" title="语句终结符号，块表达式"></a>语句终结符号，块表达式</h2><p>默认情况下，scala不需要语句终结符，默认每行作为一个语句. </p>
+<p>一行放多条语句，使用花括弧 ｛｝</p>
+<ul>
+<li>如果一行放多个语句必须使用语句终结符，通常来说，对于多行语句，还是会使用花<br>括号的方式.</li>
+</ul>
+<p>块表达式：块表达式，值的就是{ }中的值，其中包含多条语句，最后一个语句的<br>值就是块表达式的返回值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">默认每行作为一个语句</span><br><span class="line">scala&gt; var x,y,z=0</span><br><span class="line">x: Int =0</span><br><span class="line">y: Int =0</span><br><span class="line">z: Int =0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">一行放多条语句，需要使用语句终结符</span><br><span class="line">scala&gt; if(x&lt;1) &#123; y=y+1; z=z+1&#125;</span><br><span class="line">scala&gt; y</span><br><span class="line">res11: Int =1</span><br><span class="line">scala&gt; z</span><br><span class="line">res12: Int =1</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h2><p>print和println：print打印时不加换行符，println打印时会加一个换行符</p>
+<p>printtf:可以用于格式化，相当于占位符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; print(“hello”)</span><br><span class="line">hello</span><br><span class="line">scala&gt; println(“hello”)</span><br><span class="line">hello</span><br><span class="line">scala&gt; printf(“Hello, my name is %s”,”miss li”)</span><br><span class="line">Hello, my name is miss li</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">while (循环条件) &#123;</span><br><span class="line">循环体(语句)</span><br><span class="line">循环变量迭代</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var num: Int = 0</span><br><span class="line">while ( num &lt; 100 ) &#123;</span><br><span class="line">println( num )</span><br><span class="line">num = num + 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="do…while循环"><a href="#do…while循环" class="headerlink" title="do…while循环"></a>do…while循环</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">do&#123;</span><br><span class="line">循环体(语句)</span><br><span class="line">循环变量迭代</span><br><span class="line">&#125; while(循环条件)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var num: Int = 0</span><br><span class="line">do &#123;</span><br><span class="line">println( num )</span><br><span class="line">num = num + 5</span><br><span class="line">&#125; while ( num &lt; 200 )</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">											&quot;i to j&quot; 或者 &quot;i until j&quot;表示创建一个区间</span><br><span class="line">											i until j,前闭后开</span><br><span class="line">											i to j,前后闭合</span><br><span class="line">object Test &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val num: Int = 10</span><br><span class="line">    for (i: Int &lt;- 1 to num) &#123;</span><br><span class="line">      println(i * 100)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">object Test &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val num: Int</span><br><span class="line">    = 10</span><br><span class="line">    for (i: Int &lt;-1 until  num) &#123;</span><br><span class="line">      println(i * 100)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">结果:</span><br><span class="line">100</span><br><span class="line">200</span><br><span class="line">300</span><br><span class="line">400</span><br><span class="line">500</span><br><span class="line">600</span><br><span class="line">700</span><br><span class="line">800</span><br><span class="line">900</span><br><span class="line">1000</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h4 id="倒序打印"><a href="#倒序打印" class="headerlink" title="倒序打印"></a>倒序打印</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(i&lt;- 1 to 10 reverse)&#123;</span><br><span class="line">println(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="for循环返回值"><a href="#for循环返回值" class="headerlink" title="for循环返回值"></a>for循环返回值</h4><p>for 循环中的 yield 会把当前的元素记下来，保存在集合中，循环结束后将返回该集合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">val num:Int = 10</span><br><span class="line">var retVal=for ( i: Int &lt;- 1 to num; if i%2==0;if i&gt;5 ) yield i;</span><br><span class="line">for(a &lt;- retVal)&#123;</span><br><span class="line">print(a +“ ”)</span><br><span class="line">&#125;</span><br><span class="line">//输出 6 8 10</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">											for循环使用yield</span><br><span class="line">											将具有返回值	</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h4 id="for循环步长"><a href="#for循环步长" class="headerlink" title="for循环步长"></a>for循环步长</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (i&lt;- 1 to 100 by 4)&#123;</span><br><span class="line">println(&quot;今年&quot;+i+&quot;岁&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="for循环嵌套"><a href="#for循环嵌套" class="headerlink" title="for循环嵌套"></a>for循环嵌套</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(i&lt;- 1 to 5;j&lt;- 1 to 3)&#123;</span><br><span class="line">println(i+&quot;*&quot;+j+&quot;=&quot;+i*j)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="for循环守卫"><a href="#for循环守卫" class="headerlink" title="for循环守卫"></a>for循环守卫</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(i &lt;- 1 to 100 if i%2!=0)&#123;</span><br><span class="line">	println(i + &quot; &quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="循环中断"><a href="#循环中断" class="headerlink" title="循环中断"></a>循环中断</h2><p>Scala内置控制结构特地去掉了break和continue，是为了更好的适应函数式编程，推 荐使用函数式的风格解决break和continue的功能，而不是一个关键字。Scala中使用 breakable控制结构来实现break和continue功能</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//采用Scala自带的函数，退出循环</span><br><span class="line">import scala.util.control.Breaks</span><br><span class="line">def main(args: Array[String]): Unit = &#123;</span><br><span class="line">Breaks.breakable(</span><br><span class="line">    for (elem &lt;- 1 to 10) &#123;</span><br><span class="line">    	println(elem)</span><br><span class="line">    	if (elem == 5) Breaks.break()</span><br><span class="line">    		&#125;</span><br><span class="line">    	)</span><br><span class="line">    	println(&quot;正常结束循环&quot;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">中断-对break进行省略</span><br><span class="line">import scala.util.control.Breaks._	</span><br><span class="line"></span><br><span class="line">object TestBreak &#123;</span><br><span class="line">	def main(args: Array[String]): Unit = &#123;</span><br><span class="line">		breakable &#123;</span><br><span class="line">			for (elem &lt;- 1 to 10) &#123;</span><br><span class="line">				println(elem)</span><br><span class="line">				if (elem == 5) break</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		println(&quot;正常结束循环&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">continue</span><br><span class="line">object TestContinue &#123;</span><br><span class="line">	def main(args: Array[String]): Unit = &#123;</span><br><span class="line">		//循环遍历10以内的所有数据，奇数打印，偶数跳过</span><br><span class="line">		for (elem &lt;- 1 to 10) &#123;</span><br><span class="line">			if (elem % 2 == 1) &#123;</span><br><span class="line">				println(elem)</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				println(&quot;continue&quot;)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="循环过滤"><a href="#循环过滤" class="headerlink" title="循环过滤"></a>循环过滤</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">就是for循环个if配合使用</span><br><span class="line">val num:Int = 10</span><br><span class="line">var retVal=for ( i: Int &lt;- 1 to num; if i%2==0;if i&gt;5 ) yield i;</span><br><span class="line">for(a &lt;- retVal)&#123;</span><br><span class="line">print(a +“ ”)</span><br><span class="line">&#125;</span><br><span class="line">//输出 6 8 10</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="Scala函数式编程"><a href="#Scala函数式编程" class="headerlink" title="Scala函数式编程"></a>Scala函数式编程</h1><h2 id="Scala函数概述"><a href="#Scala函数概述" class="headerlink" title="Scala函数概述"></a>Scala函数概述</h2><blockquote>
+<ol>
+<li>函数式编程是一种编程范式。</li>
+<li>函数式编程主要思想，是将问题分解成一个一个的步骤，将每个步骤进行封装（函数），通过调用这些封装好的步骤，解决问题。</li>
+<li>函数式编程的核心思想<ul>
+<li>函数是“第一等公民”<ul>
+<li>所谓“第一等公民”,指的是函数与其他数据类型一样，处于平等地位。</li>
+<li>函数可以赋值给其他变量，也可以作为参数,传入另一个函数,或者作为别的函数的返回值。</li>
+</ul>
+</li>
+<li>只用表达式，不用语句<ul>
+<li>表达式是一个单纯的运算过程，总是有返回值；而语句是执行某种操作，没有返回值</li>
+<li>函数式编程要求，只使用表达式，不使用语句。</li>
+<li>也就是说，每一步都是单纯的运算，而且都有返回值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h2 id="函数语法结构"><a href="#函数语法结构" class="headerlink" title="函数语法结构"></a>函数语法结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 函数是Scala的核心</span><br><span class="line">// 函数定义</span><br><span class="line">def 函数名([参数列表]):返回值=(</span><br><span class="line">	函数体</span><br><span class="line">	return 表达式			// return 可省略</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 函数调用</span><br><span class="line">函数名(参数列表)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="Scala函数和方法的区别"><a href="#Scala函数和方法的区别" class="headerlink" title="Scala函数和方法的区别"></a>Scala函数和方法的区别</h2><blockquote>
+<ol>
+<li><p>函数和方法的区别</p>
+<ul>
+<li>为完成某一功能的程序语句的集合，称为函数；</li>
+<li>类中的函数称之方法。</li>
+<li>函数没有重载和重写的概念；</li>
+<li>方法可以进行重载和重写。</li>
+<li>Scala中函数可以嵌套定义</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li><p>Scala语言可以在任何的语法结构中声明任何的语法。</p>
+<p>例如：导入包，声明函数等</p>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def main(args: Array[String]): Unit = &#123;</span><br><span class="line">// 函数1：无参，无返回值</span><br><span class="line">def test1(): Unit =&#123;</span><br><span class="line">println(&quot;无参，无返回值&quot;)</span><br><span class="line">&#125;</span><br><span class="line">test1()</span><br><span class="line">// 函数2：无参，有返回值</span><br><span class="line">def test2():String=&#123;</span><br><span class="line">return &quot;无参，有返回值&quot;</span><br><span class="line">&#125;</span><br><span class="line">println(test2())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ef main(args: Array[String]): Unit = &#123;</span><br><span class="line">// 函数1：无参，无返回值</span><br><span class="line">def test1(): Unit =&#123;</span><br><span class="line">println(&quot;无参，无返回值&quot;)</span><br><span class="line">&#125;</span><br><span class="line">test1()</span><br><span class="line">// 函数2：无参，有返回值</span><br><span class="line">def test2():String=&#123;</span><br><span class="line">return &quot;无参，有返回值&quot;</span><br><span class="line">&#125;</span><br><span class="line">println(test2())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h2><h3 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h3><blockquote>
+<ul>
+<li>在参数后面使用*，表示可变参数</li>
+<li>如果参数列表中存在多个参数，那么可变参数一般放置在最后</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">object Test01 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">  	// 有输入参数：输出 Array</span><br><span class="line">    test(&quot;Hello&quot;,&quot;scala&quot;)</span><br><span class="line">    </span><br><span class="line">    // 无输入参数：输出List()</span><br><span class="line">    test()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  def test(s:String*):Unit=(</span><br><span class="line">      println(s)</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="参数缺省值"><a href="#参数缺省值" class="headerlink" title="参数缺省值"></a>参数缺省值</h3><blockquote>
+<p>缺省 &#x3D; default</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    def printAddress(province:String = &quot;广东&quot;,detail:String=&quot;123&quot;):Unit=&#123;</span><br><span class="line">      println(province,detail)</span><br><span class="line">&#125;</span><br><span class="line">    printAddress()</span><br><span class="line">    printAddress(&quot;海南&quot;,&quot;海口市西环西路一号&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 id="命名参数"><a href="#命名参数" class="headerlink" title="命名参数"></a>命名参数</h3><blockquote>
+<ul>
+<li><p>通常情况下，传入参数与函数定义的参数列表一一对应</p>
+</li>
+<li><p>命名参数允许使用任意顺序传入参数</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def printName(first:String, last:String) = &#123;</span><br><span class="line">	println(first + &quot; &quot; + last)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//Print &quot;John Smith&quot; </span><br><span class="line">printName(&quot;John&quot;,&quot;Smith&quot;)</span><br><span class="line">printName(first = &quot;John&quot;,last = &quot;Smith&quot;)</span><br><span class="line">printName(last = &quot;Smith&quot;,first = &quot;John&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 id="函数作为变量的值"><a href="#函数作为变量的值" class="headerlink" title="函数作为变量的值"></a>函数作为变量的值</h3><blockquote>
+<p>scala的语法规定，将函数赋值给变量时，必须在函数后面加上空格和下划线</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def sayHello(name: String) = println(&quot;hello,&quot; + name)</span><br><span class="line">var greeting = sayHello _</span><br><span class="line">greeting(&quot;特朗普&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><blockquote>
+<ul>
+<li>高阶函数可以将其他函数作为参数或者使用函数作为输出结果 </li>
+<li>所谓高阶函数即输入参数是函数或返回是函数，也可以两者都具备</li>
+</ul>
+</blockquote>
+<h4 id="函数可以作为值进行传递"><a href="#函数可以作为值进行传递" class="headerlink" title="函数可以作为值进行传递"></a>函数可以作为值进行传递</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// 函数作为值传递</span><br><span class="line">def main(args: Array[String]): Unit = &#123;</span><br><span class="line">	//调用foo函数，把返回值给变量f</span><br><span class="line">	val f = foo //调用foo函数，返回1</span><br><span class="line">	println(f) //打印 1</span><br><span class="line">&#125;</span><br><span class="line">def foo(): Int = &#123;</span><br><span class="line">	println(&quot;foo...&quot;)</span><br><span class="line">	1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//_ 将函数赋值给变量</span><br><span class="line">def main(args: Array[String]): Unit = &#123;</span><br><span class="line">//在foo后面加上 _，相当于把foo当成一个整体，传递给f1</span><br><span class="line">	val f1 = foo _</span><br><span class="line">	foo() //foo... </span><br><span class="line">	f1() //foo... </span><br><span class="line">&#125;</span><br><span class="line">	def foo(): Int = &#123;</span><br><span class="line">	println(&quot;foo...&quot;)</span><br><span class="line">	1</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main(args: Array[String]): Unit = &#123;</span><br><span class="line">	//如果明确变量类型，那么不使用下划线也可以将函数作为整体传递给变量</span><br><span class="line">	var f2: () =&gt; Int = foo //f2为函数类型，无参，返回值为int类型。</span><br><span class="line">    val v1 = f2() //foo.. </span><br><span class="line">    println(v1) //1</span><br><span class="line">    println(f2.getClass) //class Test12$$anonfun$1</span><br><span class="line">&#125;</span><br><span class="line">def foo(): Int = &#123;</span><br><span class="line">    println(&quot;foo...&quot;)</span><br><span class="line">    1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h4 id="函数可以作为参数进行传递"><a href="#函数可以作为参数进行传递" class="headerlink" title="函数可以作为参数进行传递"></a>函数可以作为参数进行传递</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def main(args: Array[String]): Unit = &#123;</span><br><span class="line">// 定义一个函数，函数参数是函数签名.</span><br><span class="line">// f表示函数名称;(Int,Int)表示输入两个Int参数；Int表示函数返回值</span><br><span class="line">def f1(f: (Int, Int) =&gt; Int): Int = &#123;</span><br><span class="line">f(2, 4)</span><br><span class="line">&#125;</span><br><span class="line">//定义一个函数，参数和返回值类型和f1的输入参数一致</span><br><span class="line">def add(a: Int, b: Int): Int = a + b</span><br><span class="line">//将add函数作为参数传递给f1函数，因能够推断出来不是调用，_可以省略</span><br><span class="line">println(f1(add))</span><br><span class="line">println(f1(add _))</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="函数可以作为函数返回值"><a href="#函数可以作为函数返回值" class="headerlink" title="函数可以作为函数返回值"></a>函数可以作为函数返回值</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def main(args: Array[String]): Unit = &#123;</span><br><span class="line">def f1() = &#123;</span><br><span class="line">def f2() = &#123;</span><br><span class="line">println(&quot;hi,小马&quot;)</span><br><span class="line">&#125;</span><br><span class="line">f2 _ //f1返回值为函数类型</span><br><span class="line">&#125;</span><br><span class="line">//调用f1，得到的是函数类型的值</span><br><span class="line">val f = f1()</span><br><span class="line">//f为函数类型，可以执行返回的函数</span><br><span class="line">f()</span><br><span class="line">// 上面的代码可以简化为</span><br><span class="line">f1()()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="内置高阶函数"><a href="#内置高阶函数" class="headerlink" title="内置高阶函数"></a>内置高阶函数</h2><p>Scala内置的常用高阶函数包括</p>
+<p>map : map将某个函数应用到集合中的每个元素，结果产生一个新的集合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val datas = List(&quot;a,b,c&quot;,&quot;d,e,f,g&quot;,&quot;h,i,j,k&quot;,&quot;l,m,n&quot;)</span><br><span class="line">datas: List[String] = List(a,b,c, d,e,f,g, h,i,j,k, l,m,n)</span><br><span class="line"></span><br><span class="line">scala&gt; datas.map(e =&gt; e.split(&quot; &quot;))</span><br><span class="line">res0: List[Array[String]] = List(Array(a,b,c), Array(d,e,f,g), Array(h,i,j,k), Array(l,m,n))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<p>flapMap : </p>
+<ul>
+<li>flatMap是map的一种扩展</li>
+<li>函数对每个输入都会返回一个集合</li>
+<li>flatMap把生成的多个集合“拍扁”成为一个集合</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val datas = List(&quot;a,b,c&quot;,&quot;d,e,f,g&quot;,&quot;h,i,j,k&quot;,&quot;l,m,n&quot;)</span><br><span class="line">datas: List[String] = List(a,b,c, d,e,f,g, h,i,j,k, l,m,n)</span><br><span class="line"></span><br><span class="line">scala&gt; datas.flatMap(e =&gt; e.split(&quot;,&quot;))</span><br><span class="line">res0: List[String] = List(a, b, c, d, e, f, g, h, i, j, k, l, m, n)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<p>foreach</p>
+<ul>
+<li>foreach函数与map函数相似，都是作用到集合的每个元素</li>
+<li>不同点：foreach函数没有返回值，map函数有返回值</li>
+<li>案例：对List集合的每个元素进行输出操作</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">val names = List(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;)</span><br><span class="line">names: List[String] = List(a, b, c)</span><br><span class="line"></span><br><span class="line">names.foreach&#123;name =&gt; println(s&quot;姓名是:$name&quot;)&#125;</span><br><span class="line">姓名是:a</span><br><span class="line">姓名是:b</span><br><span class="line">姓名是:c</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<p>filter</p>
+<ul>
+<li>filter函数过滤掉使函数返回false的元素</li>
+<li>会作用到集合的每个元素，有返回值</li>
+<li>案例：筛选List集合中的偶数，组成新的List集合</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; def isEven(i:Int):Boolean = i%2 == 0</span><br><span class="line">isEven: (i: Int)Boolean</span><br><span class="line"></span><br><span class="line">scala&gt; val numbers = List(1,2,3,4,5,6,7)</span><br><span class="line">numbers: List[Int] = List(1, 2, 3, 4, 5, 6, 7)</span><br><span class="line"></span><br><span class="line">scala&gt; val newNumbers = numbers.filter(isEven(_))</span><br><span class="line">newNumbers: List[Int] = List(2, 4, 6)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<p>fold</p>
+<ul>
+<li><p>fold函数折叠(fold)操作， 从一个初始的“种子”值开始，并以该值作为上下文， 处理集合中的每个元素</p>
+</li>
+<li><p>参数:</p>
+<p>（1）初始值 ： 需要一个初始值。按照需要设定</p>
+<p>（2）一个函数：用于计算的函数，这里是累计</p>
+</li>
+<li><p>案例：对初始值0、List集合进行累加求值操作(结果为25)</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val numbers = List(5,4,8,6,2)</span><br><span class="line">numbers: List[Int] = List(5, 4, 8, 6, 2)</span><br><span class="line"></span><br><span class="line">scala&gt; numbers.fold(0)&#123;(i,j)=&gt;println(s&quot;i:$i,j:$j&quot;);i+j&#125;</span><br><span class="line">i:0,j:5</span><br><span class="line">i:5,j:4</span><br><span class="line">i:9,j:8</span><br><span class="line">i:17,j:6</span><br><span class="line">i:23,j:2</span><br><span class="line">res5: Int = 25</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>foldLeft</p>
+<ul>
+<li><p>foldLeft函数是fold函数的变体；是从左开始，然后向右进行计算</p>
+</li>
+<li><p>参数：</p>
+<p> 初始值</p>
+<p>一个函数：需要两个参数（累加值和当前item）</p>
+</li>
+<li><p>案例：对初始值5、List集合进行累减求值操作(结果为-20)</p>
+</li>
+</ul>
+<p>foldRight</p>
+<ul>
+<li>foldRight函数是fold函数的变体；是从右开始，然后向左进行计算</li>
+<li>参数： • 初始值 • 一个函数：需要两个参数（累加值和当前item）</li>
+<li>案例：对初始值5、List集合进行累减求值操作(结果为0)</li>
+</ul>
+<p>reduce</p>
+<ul>
+<li><p>reduce函数对集合中的元素进行归约</p>
+</li>
+<li><p>处理方式和fold类似。但reduce不需要初始参数，使用第1个数作为开始参数。而fold需要一个 初始输入参数。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(1 to 9).reduceLeft(_ - _)</span><br><span class="line">res0: Int = -43</span><br><span class="line"></span><br><span class="line">(1 to 9).reduce(_ - _)</span><br><span class="line">res1: Int = -43</span><br><span class="line"></span><br><span class="line">(1 to 9).reduce(_ - _)</span><br><span class="line">res2: Int = 5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    val data = List(1,2,3,4,5)</span><br><span class="line">    val result = data.reduce((i,j) =&gt; &#123;</span><br><span class="line">      println(&quot;i=&quot;+i,&quot;j=&quot;+j);</span><br><span class="line">      i+j</span><br><span class="line">    &#125;)</span><br><span class="line">    println(&quot;求和结果:&quot;+result)</span><br><span class="line">    </span><br><span class="line">(i=1,j=2)</span><br><span class="line">(i=3,j=3)</span><br><span class="line">(i=6,j=4)</span><br><span class="line">(i=10,j=5)</span><br><span class="line">求和结果:15</span><br></pre></td></tr></table></figure>
+
+
+
+<p>zip</p>
+<ul>
+<li><p>zip函数将两个集合结合都一起，是对偶函数</p>
+</li>
+<li><p>案例：将两个集合结合在一起，元素类型是元组</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   // zip示例</span><br><span class="line">   val data1 = Array(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;)</span><br><span class="line">   val data2 = Array(1,2,3)</span><br><span class="line">   val data3 = data1.zip(data2)</span><br><span class="line">   for(i &lt;- data3.indices)&#123;</span><br><span class="line">     println(data3(i))</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">// 遍历zip后的结果</span><br><span class="line">   (a,1)</span><br><span class="line">   (b,2)</span><br><span class="line">   (c,3)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>flatten</p>
+<ul>
+<li>flatten函数将结构元素展开</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val datas = List(List(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;),List(1,2,3),List(true,false))</span><br><span class="line">datas: List[List[Any]] = List(List(a, b, c), List(1, 2, 3), List(true, false))</span><br><span class="line"></span><br><span class="line">scala&gt; datas.flatten</span><br><span class="line">res3: List[Any] = List(a, b, c, 1, 2, 3, true, false)</span><br><span class="line"></span><br><span class="line">scala&gt; println(datas.flatten.mkString(&quot;,&quot;))</span><br><span class="line">res4: a,b,c,1,2,3,true,false	</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><blockquote>
+<p>没有名字的函数就是匿名函数。</p>
+<p>(x:Int) &#x3D;&gt; { 函数体 }</p>
+<p>x ：表示输入参数类型； Int ：表示输入参数类型；函数体：表示具体代码逻辑</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// 传递的函数有一个参数</span><br><span class="line">object testDemo111 extends App &#123;</span><br><span class="line"> </span><br><span class="line">  // （1）定义一个函数：参数包含数据和逻辑函数</span><br><span class="line">  def operation(arr: Array[Int], op: Int =&gt; Int) = &#123;</span><br><span class="line">    for (elem &lt;- arr) yield op(elem)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // （2）定义逻辑函数</span><br><span class="line">  def op(ele: Int): Int = &#123;</span><br><span class="line">    ele + 1</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // （3）标准函数调用</span><br><span class="line">  val arr = operation(Array(1, 2, 3, 4), op)</span><br><span class="line">  println(arr.mkString(&quot;,&quot;))</span><br><span class="line">  </span><br><span class="line">  // （4）采用匿名函数</span><br><span class="line">  val arr1 = operation(Array(1, 2, 3, 4), (ele: Int) =&gt; &#123;</span><br><span class="line">    ele + 1</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  // (5) 对匿名函数进行化简</span><br><span class="line">  val arr2 = operation(Array(1, 2, 3, 4), (ele) =&gt; &#123;ele + 1&#125;)</span><br><span class="line">  val arr3 = operation(Array(1, 2, 3, 4), ele =&gt; ele + 1)</span><br><span class="line">  </span><br><span class="line">  // ()如果参数只出现一次，则参数省略且后面参数可以用_代替</span><br><span class="line">  val arr4 = operation(Array(1, 2, 3, 4), _+1)</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 传递的函数有两个参数</span><br><span class="line">object testDemo111 extends App &#123;</span><br><span class="line">  def calculator(a: Int, b: Int, op: (Int, Int) =&gt; Int): Int = &#123;</span><br><span class="line">    op(a, b)</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  // （1）标准版</span><br><span class="line">  println(calculator(2, 3, (x: Int, y: Int) =&gt; &#123;x + y&#125;))</span><br><span class="line">  </span><br><span class="line">  // （2）如果只有一行，则大括号也可以省略</span><br><span class="line">  println(calculator(2, 3, (x: Int, y: Int) =&gt; x + y))</span><br><span class="line">  </span><br><span class="line">  // （3）参数的类型可以省略，会根据形参进行自动的推导;</span><br><span class="line">  println(calculator(2, 3, (x , y) =&gt; x + y))</span><br><span class="line">  </span><br><span class="line">  // （4）如果参数只出现一次，则参数省略且后面参数可以用_代替</span><br><span class="line">  println(calculator(2, 3, _ + _))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="函数至简原则"><a href="#函数至简原则" class="headerlink" title="函数至简原则"></a>函数至简原则</h2><blockquote>
+<ol>
+<li>return可以省略，Scala会使用函数体的最后一行代码作为返回值</li>
+<li>如果函数体只有一行代码，可以省略花括号</li>
+<li>返回值类型如果能够推断出来，那么返回类型可以省略</li>
+<li>注意：如果有return，则不能省略返回值类型，必须指定</li>
+<li>如果函数明确声明unit，那么即使函数体中使用return关键字也不起作用</li>
+<li>Scala如果期望是无返回值类型，可以省略等号（1）unit类型返回值 2)就 算是有返回值，因为省略&#x3D;号，不会有返回值）</li>
+<li>如果函数无参，但是声明了参数列表，那么调用时，小括号，可加可不加</li>
+<li>如果函数没有参数列表，那么小括号可以省略，调用时小括号必须省略</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">// 函数标准写法</span><br><span class="line">def f( s : String ): String = &#123;</span><br><span class="line">return s + &quot; 阿联&quot;</span><br><span class="line">&#125;</span><br><span class="line">println(f(&quot;Hello&quot;))</span><br><span class="line"></span><br><span class="line">// 1. ,Scala会使用函数体的最后一行代码作为返回值</span><br><span class="line">def f1( s : String ): String = &#123;</span><br><span class="line">s + &quot; 阿联&quot;</span><br><span class="line">&#125;</span><br><span class="line">println(f1(&quot;Hello&quot;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 2. 如果函数体只有一行代码，可以省略花括号</span><br><span class="line">def f2(s:String):String = s + &quot; 阿联&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 3. 返回值类型如果能够推断出来，那么可以省略, :和返回值类型一起省略</span><br><span class="line">def f3( s : String ) = s + &quot; 阿联&quot; </span><br><span class="line">println(f3(&quot;Hello3&quot;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 4. 如果有return，则不能省略返回值类型，必须指定。</span><br><span class="line">def f4():String = &#123;</span><br><span class="line">	return &quot;yaoming&quot;</span><br><span class="line">&#125;</span><br><span class="line">println(f4())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 5. 如果函数明确声明unit，那么即使函数体中使用return关键字也不起作用</span><br><span class="line">def f5(): Unit = &#123;</span><br><span class="line">return &quot;xingxing5&quot;</span><br><span class="line">&#125;</span><br><span class="line">println(f5())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 6. Scala如果期望是无返回值类型,可以省略等号</span><br><span class="line">def f6() &#123;&quot;xingxing6&quot;&#125;</span><br><span class="line">println(f6())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 7. 如函数无参，但声明有参数列表的括号，调用时，小括号可加可不加</span><br><span class="line">def f7() = &quot;xingxing7&quot; println(f7())</span><br><span class="line">println(f7)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 8. 如果函数没有参数列表，那么小括号可以省略,调用时小括号必须省略</span><br><span class="line">def f8 = &quot;xingxing8&quot;</span><br><span class="line">//println(f8())</span><br><span class="line">println(f8)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">def main(args: Array[String]) &#123;</span><br><span class="line">val str1:String = &quot;Hello, &quot; val str2:String = &quot;Scala!&quot; println( &quot;str1 + str2 = &quot; + strcat1(str1)(str2) )</span><br><span class="line">println( &quot;str1 + str2 = &quot; + strcat2(str1,str2) )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//柯里化 -- 实现方式1</span><br><span class="line">def strcat1(s1: String)(s2: String) = &#123;</span><br><span class="line">s1 + s2</span><br><span class="line">&#125;</span><br><span class="line">def strcat2(s1: String, s2: String) = &#123;</span><br><span class="line">s1 + s2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">def main(args: Array[String]) &#123;</span><br><span class="line">val str1:String = &quot;Hello, &quot; val str2:String = &quot;Scala!&quot; println( &quot;str1 + str2 = &quot; + strcat1(str1,str2) )</span><br><span class="line">println( &quot;str1 + str2 = &quot; + strcat2(str1)(str2) )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//柯里化 -- 实现方式2</span><br><span class="line">def strcat2(s1: String) = &#123;</span><br><span class="line">def f1(s2:String)=&#123;</span><br><span class="line">s1+s2</span><br><span class="line">&#125;</span><br><span class="line">f1 _</span><br><span class="line">&#125;</span><br><span class="line">def strcat1(s1: String, s2: String) = &#123;</span><br><span class="line">s1 + s2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="惰性函数"><a href="#惰性函数" class="headerlink" title="惰性函数"></a>惰性函数</h2><blockquote>
+<p>惰性函数概述</p>
+<ul>
+<li>当函数返回值被声明为lazy时，函数的执行将被推迟，直到我们首次对 此取值，该函数才会执行。这种函数我们称之为惰性函数</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def main(args: Array[String]): Unit = &#123;</span><br><span class="line">lazy val res = sum(10, 30)</span><br><span class="line">println(&quot;----------------&quot;)</span><br><span class="line">println(&quot;res=&quot; + res)</span><br><span class="line">&#125;</span><br><span class="line">def sum(n1: Int, n2: Int): Int = &#123;</span><br><span class="line">println(&quot;sum被执行。。。&quot;)</span><br><span class="line">return n1 + n2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="传名参数和传值参数"><a href="#传名参数和传值参数" class="headerlink" title="传名参数和传值参数"></a>传名参数和传值参数</h2><h3 id="传值调用：把计算后的值传递过去"><a href="#传值调用：把计算后的值传递过去" class="headerlink" title="传值调用：把计算后的值传递过去"></a>传值调用：把计算后的值传递过去</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def main(args: Array[String]): Unit = &#123;</span><br><span class="line">def f = ()=&gt;&#123;</span><br><span class="line">println(&quot;f...&quot;)</span><br><span class="line">10</span><br><span class="line">&#125;</span><br><span class="line">foo(f()) //先执行f() ，将结果10传给foo</span><br><span class="line">&#125;</span><br><span class="line">def foo(a: Int):Unit = &#123;</span><br><span class="line">println(a)</span><br><span class="line">println(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="传名调用：把代码传递过去"><a href="#传名调用：把代码传递过去" class="headerlink" title="传名调用：把代码传递过去"></a>传名调用：把代码传递过去</h3><blockquote>
+<p>传名参数在函数调用前表达式不会被求值，而被包裹成一个匿名函数作为函数参数传递， 方法在变量名和变量类型使用 &#x3D;&gt; 符号（如：a: &#x3D;&gt; Int）来设置传名调</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def main(args: Array[String]): Unit = &#123;</span><br><span class="line">def f = ()=&gt;&#123;</span><br><span class="line">println(&quot;f...&quot;)</span><br><span class="line">10</span><br><span class="line">&#125;</span><br><span class="line">foo(f())</span><br><span class="line">&#125;</span><br><span class="line">//def foo(a:() =&gt;Int):Unit = &#123; //也是传值调用，参数为函数类型</span><br><span class="line">def foo(a: =&gt;Int):Unit = &#123; //注意这里的写法</span><br><span class="line">a //这里把a作为函数的内部代码来执行</span><br><span class="line">println(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="Scala数组"><a href="#Scala数组" class="headerlink" title="Scala数组"></a>Scala数组</h1><blockquote>
+<p>Scala 语言中提供的数组是用来存储固定大小的同类型元素，数组对于每一门编程语言来说都是重要的数据结构之一。</p>
+<p>声明数组变量并不是声明 number0、number1、…、number99 一个个单独的变量，而是声明一个就像 numbers 这样的变量，然后使用 numbers[0]、numbers[1]、…、numbers[99] 来表示一个个单独的变量。数组中某个指定的元素是通过索引来访问的。</p>
+<p>数组的第一个元素索引为0，最后一个元素的索引为元素总数减1。</p>
+</blockquote>
+<h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"> Scala 一维数组声明的语法格式</span><br><span class="line"> </span><br><span class="line"> var z:Array[String] = new Array[String](3)</span><br><span class="line">或</span><br><span class="line">var z = new Array[String](3)</span><br><span class="line"></span><br><span class="line">var z = Array(123, 456, 789)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 访问对应索引值</span><br><span class="line">println(z(0))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 输出所有元素</span><br><span class="line">for(x &lt;- z)println(x+&quot; &quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算所有元素的总和</span><br><span class="line">var total:Int = 0</span><br><span class="line">for(y &lt;- z)&#123;</span><br><span class="line">total += y</span><br><span class="line">&#125;</span><br><span class="line">println(total)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 查找数组中的最大元素</span><br><span class="line">var max = z(0);</span><br><span class="line">for (i &lt;- 1 to (z.length - 1)) &#123;</span><br><span class="line">if (z(i) &gt; max) max = z(i);</span><br><span class="line">&#125;</span><br><span class="line">println(&quot;最大值为 &quot; + max);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 创建数组区间</span><br><span class="line">var myList = range(10,20,2)  // 区间范围值10到20,步长为2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 数组合并</span><br><span class="line">var mylist1 = Array(1,3,5,7,9)</span><br><span class="line">var mylist2 = Array(2,4,6,8,10)</span><br><span class="line"></span><br><span class="line">var mylist3 = concat(mylist1,mylist2)</span><br><span class="line"></span><br><span class="line">结果:</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">7</span><br><span class="line">9</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">6</span><br><span class="line">8</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 二维数组声明语法</span><br><span class="line">var myMatrix = Array.ofDim[Int](3,3)</span><br><span class="line">val myMatrix: Array[Array[Int]] = Array.ofDim[Int](3, 3)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 创建矩阵</span><br><span class="line">for(i&lt;- 0 to 2)&#123;</span><br><span class="line">  for(j&lt;- 0 to 2)(</span><br><span class="line">    myMatrix(i)(j) = j</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 打印二维阵列</span><br><span class="line">for (i&lt;- 0 to 2)&#123;</span><br><span class="line">  for(j&lt;-0 to 2)&#123;</span><br><span class="line">    print(&quot; &quot;+myMatrix(i)(j))</span><br><span class="line">  &#125;</span><br><span class="line">  println()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h2><p>下表中为 Scala 语言中处理数组的重要方法，使用它前我们需要使用 <strong>import Array._</strong> 引入包。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">1. def apply( x: T, xs: T* ): Array[T]</span><br><span class="line">创建指定对象 T 的数组, T 的值可以是 Unit, Double, Float, Long, Int, Char, Short, Byte, Boolean</span><br><span class="line"></span><br><span class="line">2. def concat[T]( xss: Array[T]* ): Array[T]</span><br><span class="line">合并数组</span><br><span class="line"></span><br><span class="line">3. def copy( src: AnyRef, srcPos: Int, dest: AnyRef, destPos: Int, length: Int ): Unit</span><br><span class="line">复制一个数组到另一个数组上。相等于 Java&#x27;s System.arraycopy(src, srcPos, dest, destPos, length)。</span><br><span class="line"></span><br><span class="line">4. def empty[T]: Array[T]</span><br><span class="line">返回长度为 0 的数组</span><br><span class="line"></span><br><span class="line">5. def iterate[T]( start: T, len: Int )( f: (T) =&gt; T ): Array[T]</span><br><span class="line">返回指定长度数组，每个数组元素为指定函数的返回值。</span><br><span class="line">以上实例数组初始值为 0，长度为 3，计算函数为a=&gt;a+1：</span><br><span class="line"></span><br><span class="line">6. def fill[T]( n: Int )(elem: =&gt; T): Array[T]</span><br><span class="line">返回数组，长度为第一个参数指定，同时每个元素使用第二个参数进行填充</span><br><span class="line"></span><br><span class="line">7. def fill[T]( n1: Int, n2: Int )( elem: =&gt; T ): Array[Array[T]]</span><br><span class="line">返回二数组，长度为第一个参数指定，同时每个元素使用第二个参数进行填充</span><br><span class="line"></span><br><span class="line">8. def ofDim[T]( n1: Int ): Array[T]</span><br><span class="line">创建指定长度的数组</span><br><span class="line"></span><br><span class="line">9. def ofDim[T]( n1: Int, n2: Int ): Array[Array[T]]</span><br><span class="line">创建二维数组</span><br><span class="line"></span><br><span class="line">10. def ofDim[T]( n1: Int, n2: Int, n3: Int ): Array[Array[Array[T]]]</span><br><span class="line">创建三维数组</span><br><span class="line"></span><br><span class="line">11. def range( start: Int, end: Int, step: Int ): Array[Int]</span><br><span class="line">创建指定区间内的数组，step 为每个元素间的步长</span><br><span class="line"></span><br><span class="line">12. def range( start: Int, end: Int ): Array[Int]</span><br><span class="line">创建指定区间内的数组</span><br><span class="line"></span><br><span class="line">13.	def tabulate[T]( n: Int )(f: (Int)=&gt; T): Array[T]</span><br><span class="line">返回指定长度数组，每个数组元素为指定函数的返回值，默认从 0 开始。</span><br><span class="line">以上实例返回 3 个元素：</span><br><span class="line"></span><br><span class="line">14. def tabulate[T]( n1: Int, n2: Int )( f: (Int, Int ) =&gt; T): Array[Array[T]]</span><br><span class="line">返回指定长度的二维数组，每个数组元素为指定函数的返回值，默认从 0 开始。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="Scala-访问修饰符"><a href="#Scala-访问修饰符" class="headerlink" title="Scala 访问修饰符"></a>Scala 访问修饰符</h1><blockquote>
+<p>Scala 访问修饰符基本和Java的一样，分别有：private，protected，public。</p>
+<p>如果没有指定访问修饰符，默认情况下，Scala 对象的访问级别都是 public。</p>
+<p>Scala 中的 private 限定符，比 Java 更严格，在嵌套类情况下，外层类甚至不能访问被嵌套类的私有成员</p>
+</blockquote>
+<h2 id="私有-Private-成员"><a href="#私有-Private-成员" class="headerlink" title="私有(Private)成员"></a>私有(Private)成员</h2><blockquote>
+<p>用 private 关键字修饰，带有此标记的成员仅在包含了成员定义的类或对象内部可见，同样的规则还适用内部类。</p>
+</blockquote>
+<h2 id="保护-Protected-成员"><a href="#保护-Protected-成员" class="headerlink" title="保护(Protected)成员"></a>保护(Protected)成员</h2><blockquote>
+<p>在 scala 中，对保护（Protected）成员的访问比 java 更严格一些。因为它只允许保护成员在定义了该成员的的类的子类中被访问。而在java中，用 protected关键字修饰的成员，除了定义了该成员的类的子类可以访问，同一个包里的其他类也可以进行访问。</p>
+</blockquote>
+<h2 id="公共-Public-成员"><a href="#公共-Public-成员" class="headerlink" title="公共(Public)成员"></a>公共(Public)成员</h2><blockquote>
+<p>Scala 中，如果没有指定任何的修饰符，则默认为 public。这样的成员在任何地方都可以被访问</p>
+</blockquote>
+<h2 id="作用域保护"><a href="#作用域保护" class="headerlink" title="作用域保护"></a>作用域保护</h2><blockquote>
+<p>Scala中，访问修饰符可以通过使用限定词强调。格式为:</p>
+</blockquote>
+<h1 id="Scala文件IO"><a href="#Scala文件IO" class="headerlink" title="Scala文件IO"></a>Scala文件IO</h1><h1 id="Scala提取器"><a href="#Scala提取器" class="headerlink" title="Scala提取器"></a>Scala提取器</h1><h1 id="Scala异常处理"><a href="#Scala异常处理" class="headerlink" title="Scala异常处理"></a>Scala异常处理</h1><h1 id="Scala正则表达式"><a href="#Scala正则表达式" class="headerlink" title="Scala正则表达式"></a>Scala正则表达式</h1><h1 id="Scala模式匹配"><a href="#Scala模式匹配" class="headerlink" title="Scala模式匹配"></a>Scala模式匹配</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://weiran12123.github.io/weiran12123">拾光</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://weiran12123.github.io/weiran12123/2023/09/04/Scala/">https://weiran12123.github.io/weiran12123/2023/09/04/Scala/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://weiran12123.github.io/weiran12123" target="_blank">无名军师</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/weiran12123.github.io/tags/Scala/">Scala</a></div><div class="post_share"><div class="social-share" data-image="/weiran12123.github.io/images/Scala.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/weiran12123.github.io/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/weiran12123.github.io/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/weiran12123.github.io/img/zhifubao.jpg" target="_blank"><img class="post-qr-code-img" src="/weiran12123.github.io/img/zhifubao.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/weiran12123.github.io/2023/09/21/MongoDB/" title="MongoDB"><img class="cover" src="/weiran12123.github.io/images/MongoDB.jpg" onerror="onerror=null;src='/weiran12123.github.io/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MongoDB</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/weiran12123.github.io/images/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">拾光</div><div class="author-info__description">人生天地间,忽如远行客</div></div><div class="card-info-data site-data is-center"><a href="/weiran12123.github.io/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/weiran12123.github.io/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/weiran12123.github.io/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/weiran12123"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/weiran12123" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_69523986?spm=1018.2226.3001.5343" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="mailto:weiran12123@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2193914120&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里是拾光的的个人博客，分享学习生活中的各种琐事，有问题欢迎交流探讨</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">Scala概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2"><span class="toc-number">1.1.</span> <span class="toc-text">历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala%E9%83%A8%E7%BD%B2"><span class="toc-number">2.</span> <span class="toc-text">Scala部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Window%E7%89%88%E6%9C%AC"><span class="toc-number">2.1.</span> <span class="toc-text">Window版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%89%88%E6%9C%AC"><span class="toc-number">2.2.</span> <span class="toc-text">Linux版本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">Scala数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala%E5%8F%98%E9%87%8F%E4%B8%8E%E5%B8%B8%E9%87%8F"><span class="toc-number">3.1.</span> <span class="toc-text">Scala变量与常量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">3.1.1.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">3.1.2.</span> <span class="toc-text">常量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="toc-number">3.2.</span> <span class="toc-text">类型别名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#type%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">3.2.1.</span> <span class="toc-text">type关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">3.3.</span> <span class="toc-text">Scala数据类型层次结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.4.</span> <span class="toc-text">整数类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.5.</span> <span class="toc-text">浮点类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#char%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.6.</span> <span class="toc-text">char类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.7.</span> <span class="toc-text">布尔类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unit%E7%B1%BB%E5%9E%8B%EF%BC%8CNull%E7%B1%BB%E5%9E%8B%EF%BC%8CNothing%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.8.</span> <span class="toc-text">Unit类型，Null类型，Nothing类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala-%E7%AE%80%E5%8D%95%E5%8A%9F%E8%83%BD"><span class="toc-number">4.</span> <span class="toc-text">Scala 简单功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%AE%E7%9B%98%E9%94%AE%E5%85%A5"><span class="toc-number">4.1.</span> <span class="toc-text">键盘键入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%A3%85%E6%8D%A2"><span class="toc-number">4.2.</span> <span class="toc-text">自动类型装换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.3.</span> <span class="toc-text">强制类型转换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala%E6%9D%A1%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">5.</span> <span class="toc-text">Scala条件循环控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#if%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">5.1.</span> <span class="toc-text">if表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E5%8F%A5%E7%BB%88%E7%BB%93%E7%AC%A6%E5%8F%B7%EF%BC%8C%E5%9D%97%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">5.2.</span> <span class="toc-text">语句终结符号，块表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-number">5.3.</span> <span class="toc-text">输入与输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#while%E5%BE%AA%E7%8E%AF"><span class="toc-number">5.4.</span> <span class="toc-text">while循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#do%E2%80%A6while%E5%BE%AA%E7%8E%AF"><span class="toc-number">5.5.</span> <span class="toc-text">do…while循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for%E5%BE%AA%E7%8E%AF"><span class="toc-number">5.6.</span> <span class="toc-text">for循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%80%92%E5%BA%8F%E6%89%93%E5%8D%B0"><span class="toc-number">5.6.0.1.</span> <span class="toc-text">倒序打印</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for%E5%BE%AA%E7%8E%AF%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">5.6.0.2.</span> <span class="toc-text">for循环返回值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for%E5%BE%AA%E7%8E%AF%E6%AD%A5%E9%95%BF"><span class="toc-number">5.6.0.3.</span> <span class="toc-text">for循环步长</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for%E5%BE%AA%E7%8E%AF%E5%B5%8C%E5%A5%97"><span class="toc-number">5.6.0.4.</span> <span class="toc-text">for循环嵌套</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for%E5%BE%AA%E7%8E%AF%E5%AE%88%E5%8D%AB"><span class="toc-number">5.6.0.5.</span> <span class="toc-text">for循环守卫</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E4%B8%AD%E6%96%AD"><span class="toc-number">5.7.</span> <span class="toc-text">循环中断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%BF%87%E6%BB%A4"><span class="toc-number">5.8.</span> <span class="toc-text">循环过滤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text">Scala函数式编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala%E5%87%BD%E6%95%B0%E6%A6%82%E8%BF%B0"><span class="toc-number">6.1.</span> <span class="toc-text">Scala函数概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84"><span class="toc-number">6.2.</span> <span class="toc-text">函数语法结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">6.3.</span> <span class="toc-text">Scala函数和方法的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-number">6.4.</span> <span class="toc-text">函数参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="toc-number">6.4.1.</span> <span class="toc-text">可变参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E7%BC%BA%E7%9C%81%E5%80%BC"><span class="toc-number">6.4.2.</span> <span class="toc-text">参数缺省值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E5%8F%82%E6%95%B0"><span class="toc-number">6.4.3.</span> <span class="toc-text">命名参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC"><span class="toc-number">6.4.4.</span> <span class="toc-text">函数作为变量的值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0"><span class="toc-number">6.5.</span> <span class="toc-text">高阶函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BA%E5%80%BC%E8%BF%9B%E8%A1%8C%E4%BC%A0%E9%80%92"><span class="toc-number">6.5.0.1.</span> <span class="toc-text">函数可以作为值进行传递</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E4%BC%A0%E9%80%92"><span class="toc-number">6.5.0.2.</span> <span class="toc-text">函数可以作为参数进行传递</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">6.5.0.3.</span> <span class="toc-text">函数可以作为函数返回值</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0"><span class="toc-number">6.6.</span> <span class="toc-text">内置高阶函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-number">6.7.</span> <span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%87%B3%E7%AE%80%E5%8E%9F%E5%88%99"><span class="toc-number">6.8.</span> <span class="toc-text">函数至简原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%AF%E9%87%8C%E5%8C%96"><span class="toc-number">6.9.</span> <span class="toc-text">柯里化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%83%B0%E6%80%A7%E5%87%BD%E6%95%B0"><span class="toc-number">6.10.</span> <span class="toc-text">惰性函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E5%90%8D%E5%8F%82%E6%95%B0%E5%92%8C%E4%BC%A0%E5%80%BC%E5%8F%82%E6%95%B0"><span class="toc-number">6.11.</span> <span class="toc-text">传名参数和传值参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E5%80%BC%E8%B0%83%E7%94%A8%EF%BC%9A%E6%8A%8A%E8%AE%A1%E7%AE%97%E5%90%8E%E7%9A%84%E5%80%BC%E4%BC%A0%E9%80%92%E8%BF%87%E5%8E%BB"><span class="toc-number">6.11.1.</span> <span class="toc-text">传值调用：把计算后的值传递过去</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E5%90%8D%E8%B0%83%E7%94%A8%EF%BC%9A%E6%8A%8A%E4%BB%A3%E7%A0%81%E4%BC%A0%E9%80%92%E8%BF%87%E5%8E%BB"><span class="toc-number">6.11.2.</span> <span class="toc-text">传名调用：把代码传递过去</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala%E6%95%B0%E7%BB%84"><span class="toc-number">7.</span> <span class="toc-text">Scala数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">7.1.</span> <span class="toc-text">一维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">7.2.</span> <span class="toc-text">多维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95"><span class="toc-number">7.3.</span> <span class="toc-text">数组方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala-%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">8.</span> <span class="toc-text">Scala 访问修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%81%E6%9C%89-Private-%E6%88%90%E5%91%98"><span class="toc-number">8.1.</span> <span class="toc-text">私有(Private)成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E6%8A%A4-Protected-%E6%88%90%E5%91%98"><span class="toc-number">8.2.</span> <span class="toc-text">保护(Protected)成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%85%B1-Public-%E6%88%90%E5%91%98"><span class="toc-number">8.3.</span> <span class="toc-text">公共(Public)成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%BF%9D%E6%8A%A4"><span class="toc-number">8.4.</span> <span class="toc-text">作用域保护</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala%E6%96%87%E4%BB%B6IO"><span class="toc-number">9.</span> <span class="toc-text">Scala文件IO</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala%E6%8F%90%E5%8F%96%E5%99%A8"><span class="toc-number">10.</span> <span class="toc-text">Scala提取器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">11.</span> <span class="toc-text">Scala异常处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">12.</span> <span class="toc-text">Scala正则表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D"><span class="toc-number">13.</span> <span class="toc-text">Scala模式匹配</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/weiran12123.github.io/2024/06/27/hello-world/" title="Hello World"><img src="https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/weiran12123.github.io/2024/06/27/hello-world/" title="Hello World">Hello World</a><time datetime="2024-06-26T16:09:22.799Z" title="发表于 2024-06-27 00:09:22">2024-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/weiran12123.github.io/2023/10/16/Git/" title="Git"><img src="/weiran12123.github.io/images/git%E5%A4%96%E9%83%A8%E5%9B%BE.png" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/404.jpg'" alt="Git"/></a><div class="content"><a class="title" href="/weiran12123.github.io/2023/10/16/Git/" title="Git">Git</a><time datetime="2023-10-16T13:46:22.000Z" title="发表于 2023-10-16 21:46:22">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/weiran12123.github.io/2023/10/11/Pr/" title="Pr"><img src="/weiran12123.github.io/images/Pr.jpg" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/404.jpg'" alt="Pr"/></a><div class="content"><a class="title" href="/weiran12123.github.io/2023/10/11/Pr/" title="Pr">Pr</a><time datetime="2023-10-11T13:19:52.000Z" title="发表于 2023-10-11 21:19:52">2023-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/weiran12123.github.io/2023/10/09/tools/" title="tools"><img src="/weiran12123.github.io/images/tools.jpg" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/404.jpg'" alt="tools"/></a><div class="content"><a class="title" href="/weiran12123.github.io/2023/10/09/tools/" title="tools">tools</a><time datetime="2023-10-09T06:45:53.000Z" title="发表于 2023-10-09 14:45:53">2023-10-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/weiran12123.github.io/2023/10/09/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/" title="大数据开发技术"><img src="/weiran12123.github.io/images/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF.png" onerror="this.onerror=null;this.src='/weiran12123.github.io/img/404.jpg'" alt="大数据开发技术"/></a><div class="content"><a class="title" href="/weiran12123.github.io/2023/10/09/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/" title="大数据开发技术">大数据开发技术</a><time datetime="2023-10-09T02:04:26.000Z" title="发表于 2023-10-09 10:04:26">2023-10-09</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/weiran12123.github.io/images/Scala.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 拾光</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/weiran12123.github.io/js/utils.js"></script><script src="/weiran12123.github.io/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/weiran12123.github.io/js/search/local-search.js"></script></div></div></body></html>
